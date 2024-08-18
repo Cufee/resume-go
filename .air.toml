@@ -1,8 +1,8 @@
 [build]
 include_ext = ["go", "tmpl", "templ", "html"]
-exclude_regex = [".*_templ.go"]
-pre_cmd = ["templ generate"]
-cmd = "go build -o ./tmp/main ."
+exclude_regex = [".*_templ.go", ".*.html"]
+pre_cmd = ["go generate ."]
+cmd = "go build -o ./tmp/main dev.go"
 send_interrupt = true
 stop_on_error = true
 
@@ -13,4 +13,4 @@ app_port = 8081
 
 [log]
 # Only show main log (silences watcher, build, runner)
-main_only = false
+main_only = true

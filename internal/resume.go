@@ -1,4 +1,4 @@
-package main
+package internal
 
 import (
 	"encoding/json"
@@ -145,7 +145,7 @@ func (t *Text) Fill(variables map[string]string) {
 		return
 	}
 	parts := strings.SplitN(string(*t), "/", 2)
-	if value, ok := variables[parts[0]]; ok {
+	if value, ok := variables[parts[0][1:]]; ok {
 		*t = Text(value)
 		return
 	}

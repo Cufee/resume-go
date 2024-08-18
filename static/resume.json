@@ -34,22 +34,21 @@
                         "label": "byvko.dev"
                     }
                 ],
-                "tags": [
+                "technologies": [
                     "Go",
                     "React",
+                    "CI/CD",
                     "Docker",
-                    "CI/CD"
+                    "$TECHNOLOGY_CLOUD_PRIMARY/GCP"
                 ],
                 "bullets": [
                     "Led the refactoring of a large codebase, consolidating over 7 microservices into a single, highly efficient application, improving overall system performance by 40%.",
-                    "Optimized resource utilization and reduced infrastructure costs by 90%, leveraging a monolithic design to simplify deployments and scaling.",
                     "Migrated the database layer from MongoDB to SQLite, resulting in a 50% reduction in query latency and a more lightweight, easily maintainable storage solution.",
-                    "Enhanced frontend performance and user experience by utilizing go-templ for seamless server-side rendering, achieving sub-second page load times.",
                     "Drove a 70% reduction in code duplication and technical debt through meticulous code refactoring and the implementation of best practices.",
                     "Improved system reliability and reduced bug incidence by 60%, ensuring a more stable and robust application architecture."
                 ],
                 "startedOn": "2023",
-                "finishedOn": "Present"
+                "finishedOn": ""
             },
             {
                 "title": "$POSITION_TITLE_AM/Platform Engineer",
@@ -60,12 +59,12 @@
                         "label": "AlertMedia"
                     }
                 ],
-                "tags": [
-                    "$TECHNOLOGY_FE_LIBRARY/React",
+                "technologies": [
                     "$TECHNOLOGY_JS_RUNTIME/Node.js",
-                    "$TECHNOLOGY_CLOUD_PRIMARY/AWS",
+                    "$TECHNOLOGY_FE_LIBRARY/React",
                     "OpenAI",
-                    "Terraform"
+                    "Terraform",
+                    "$TECHNOLOGY_CLOUD_PRIMARY/AWS"
                 ],
                 "bullets": [
                     "Designed and developed multiple high-impact web applications for internal use by engineering and management teams, improving operational efficiency by 50%.",
@@ -86,15 +85,15 @@
                     }
                 ],
                 "technologies": [
-                    "$TECHNOLOGY_FE_LIBRARY/React",
-                    "$TECHNOLOGY_JS_RUNTIME/Node.js",
                     "Go",
-                    "Kubernetes"
+                    "$TECHNOLOGY_JS_RUNTIME/Node.js",
+                    "$TECHNOLOGY_FE_LIBRARY/React",
+                    "Kubernetes",
+                    "$TECHNOLOGY_CLOUD_PRIMARY/GCP"
                 ],
                 "bullets": [
                     "Engineered highly popular customer-facing tools and add-ons for Chili Piper, significantly expanding the platform's feature set and driving a 25% increase in user engagement.",
                     "Authored comprehensive documentation and developed \"magic\" scripts, streamlining the onboarding process for new customers, resulting in a 40% reduction in setup time.",
-                    "Pioneered industry-leading tools for the Customer Success team, slashing response times by 50% and boosting customer satisfaction scores by 30%",
                     "Developed and launched an internal support portal, aggregating data from multiple sources to create a unified source of truth, empowering the Customer Success team with real-time insights.",
                     "Managed and optimized a Kubernetes cluster hosting all internal services and tools, ensuring 99.9% uptime and seamless scalability to meet growing operational demand."
                 ],
@@ -102,7 +101,7 @@
                 "finishedOn": "2022"
             },
             {
-                "title": "Internal Tooling Engineer - Support",
+                "title": "$POSITION_TITLE_MS/Internal Tooling Engineer",
                 "location": "Redmond, WA",
                 "labels": [
                     {
@@ -119,7 +118,7 @@
                     "Authored detailed documentation for troubleshooting hardware and software issues, reducing incident resolution time by 13%.",
                     "Managed and safeguarded highly confidential information, ensuring compliance with data security protocols."
                 ],
-                "startedOn": "2020",
+                "startedOn": "",
                 "finishedOn": "2021"
             }
         ]
@@ -153,7 +152,7 @@
                 ],
                 "labels": [
                     {
-                        "name": "GitHub",
+                        "label": "GitHub",
                         "url": "https://github.com/Cufee/feedlr-yt"
                     }
                 ],
@@ -167,7 +166,7 @@
                 ],
                 "labels": [
                     {
-                        "name": "GitHub"
+                        "label": "GitHub"
                     }
                 ],
                 "description": "User-friendly CLI tool for fast git repository management."
@@ -180,7 +179,7 @@
                 ],
                 "labels": [
                     {
-                        "name": "GitHub",
+                        "label": "GitHub",
                         "url": "https://github.com/Cufee/aftermath"
                     }
                 ],

@@ -1,0 +1,26 @@
+{
+    "pe": {
+        "HEADER_SUBTITLE": "Platform Engineer",
+        "POSITION_TITLE_VD": "Platform Engineer",
+        "POSITION_TITLE_AM": "Platform Engineer",
+        "POSITION_TITLE_CP": "Platform Engineer"
+    },
+    "be": {
+        "HEADER_SUBTITLE": "Backend Engineer",
+        "POSITION_TITLE_VD": "Backend Engineer",
+        "POSITION_TITLE_AM": "Backend Engineer",
+        "POSITION_TITLE_CP": "Backend Engineer"
+    },
+    "fe": {
+        "HEADER_SUBTITLE": "Frontend Engineer",
+        "POSITION_TITLE_VD": "Frontend Engineer",
+        "POSITION_TITLE_AM": "Frontend Engineer",
+        "POSITION_TITLE_CP": "Frontend Engineer"
+    },
+    "fs": {
+        "HEADER_SUBTITLE": "Full Stack Engineer",
+        "POSITION_TITLE_VD": "Full Stack Engineer",
+        "POSITION_TITLE_AM": "Full Stack Engineer",
+        "POSITION_TITLE_CP": "Full Stack Engineer"
+    }
+}
