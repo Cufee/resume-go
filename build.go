@@ -17,6 +17,19 @@ import (
 //go:generate bunx tailwindcss -i ./tailwind.css -o ./build/main.css --minify
 
 func main() {
+	icon, err := os.Open("static/favicon.svg")
+	if err != nil {
+		panic(err)
+	}
+	buildIcon, err := os.Create(filepath.Join("build", "favicon.svg"))
+	if err != nil {
+		panic(err)
+	}
+	_, err = io.Copy(buildIcon, icon)
+	if err != nil {
+		panic(err)
+	}
+
 	data, err := os.ReadFile("static/resume.json")
 	if err != nil {
 		panic(err)
@@ -89,7 +102,7 @@ func newVariation(browser *rod.Browser, name string, resume internal.Resume, var
 	}
 	defer out.Close()
 
-	path, err := filepath.Rel(filepath.Join("build", name), filepath.Join("build", "main.css"))
+	path, err := filepath.Rel(filepath.Join("build", name), filepath.Join("build"))
 	if err != nil {
 		return err
 	}

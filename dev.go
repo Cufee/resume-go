@@ -40,7 +40,7 @@ func main() {
 	}
 	defer out.Close()
 
-	err = internal.Index("/main.css", resume).Render(context.Background(), out)
+	err = internal.Index("", resume).Render(context.Background(), out)
 	if err != nil {
 		panic(err)
 	}
