@@ -130,7 +130,7 @@ templ position(data Position) {
 }
 
 templ resumeSidebar(data Sidebar) {
-	<div class="flex flex-col gap-4">
+	<div class="flex flex-col gap-8">
 		<div class="flex flex-col gap-2">
 			<span class="text-2xl font-bold">
 				Skills
@@ -145,7 +145,7 @@ templ resumeSidebar(data Sidebar) {
 				<hr/>
 			}
 		</div>
-		<div class="flex flex-col gap-2">
+		<div class="flex flex-col gap-8">
 			for _, data := range data.Projects {
 				@project(data)
 			}
@@ -173,6 +173,7 @@ templ project(data Project) {
 		<span>
 			{ data.Description.String() }
 		</span>
+		<hr/>
 	</div>
 }
 
