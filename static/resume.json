@@ -159,6 +159,23 @@
                 "description": "Ad-free YouTube frontend alternative with build-in sponsor blocking and zero tracking."
             },
             {
+                "title": "Aftermath",
+                "technologies": [
+                    "Go",
+                    "React",
+                    "HTMX/templ",
+                    "Docker",
+                    "CI/CD"
+                ],
+                "labels": [
+                    {
+                        "label": "GitHub",
+                        "url": "https://github.com/Cufee/aftermath"
+                    }
+                ],
+                "description": "Highly rated Discord Bot for in-game progress tracking with a beautiful UI and a custom rendering engine."
+            },
+            {
                 "title": "Pulley",
                 "technologies": [
                     "TypeScript",
@@ -170,20 +187,6 @@
                     }
                 ],
                 "description": "User-friendly CLI tool for fast git repository management."
-            },
-            {
-                "title": "Aftermath",
-                "technologies": [
-                    "Go",
-                    "Kubernetes"
-                ],
-                "labels": [
-                    {
-                        "label": "GitHub",
-                        "url": "https://github.com/Cufee/aftermath"
-                    }
-                ],
-                "description": "Highly rated Discord Bot for in-game progress tracking with a beautiful UI and a custom rendering engine."
             }
         ]
     }
