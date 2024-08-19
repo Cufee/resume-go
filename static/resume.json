@@ -183,7 +183,7 @@
                         "url": "https://github.com/Cufee/aftermath"
                     }
                 ],
-                "description": "Highly rated Discord Bot for in-game progress tracking with a beautiful UI."
+                "description": "Highly rated Discord Bot for in-game progress tracking with a beautiful UI and a custom rendering engine."
             }
         ]
     }
