@@ -9,16 +9,16 @@
         ],
         "links": [
             {
-                "label": "linkedin.com/in/vkouzin",
-                "url": "https://www.linkedin.com/in/vkouzin/"
-            },
-            {
                 "label": "github.com/cufee",
                 "url": "https://github.com/cufee"
             },
             {
                 "label": "resume.kouzin.net",
                 "url": "https://resume.kouzin.net"
+            },
+            {
+                "label": "linkedin.com/in/vkouzin",
+                "url": "https://www.linkedin.com/in/vkouzin/"
             }
         ]
     },
