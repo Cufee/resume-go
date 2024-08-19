@@ -17,13 +17,17 @@ jobs:
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
+      - name: Download go packages
+        run: go mod download
+      - name: Download npm packages
+        run: bun install
       # Build static assets
       - name: Install templ
         run: go install github.com/a-h/templ/cmd/templ@latest
       - name: Generate templates
-        run: go generate .
+        run: go generate build.go
       - name: Build static pages
-        run: go run -v main.go
+        run: go run -v build.go
       # Publish
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
