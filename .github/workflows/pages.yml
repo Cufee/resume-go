@@ -1,0 +1,32 @@
+name: Build and upload to GitHub Pages
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: "1.23"
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      # Build static assets
+      - name: Install templ
+        run: go install github.com/a-h/templ/cmd/templ@latest
+      - name: Generate templates
+        run: go generate .
+      - name: Build static pages
+        run: go run -v main.go
+      # Publish
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
