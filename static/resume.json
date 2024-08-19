@@ -163,9 +163,7 @@
                 "technologies": [
                     "Go",
                     "React",
-                    "HTMX/templ",
-                    "Docker",
-                    "CI/CD"
+                    "HTMX"
                 ],
                 "labels": [
                     {
