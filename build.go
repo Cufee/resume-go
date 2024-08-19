@@ -116,6 +116,8 @@ func savePageAsPDF(browser *rod.Browser, source string, target io.Writer) error 
 		MarginLeft:   p(0.0),
 		MarginRight:  p(0.0),
 		MarginBottom: p(0.0),
+		PaperHeight:  p(11.69),
+		PaperWidth:   p(8.5),
 		PageRanges:   "1",
 	})
 	if err != nil {
