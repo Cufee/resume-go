@@ -30,6 +30,9 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	if len(resume.Content.Positions) > 3 {
+		resume.Content.Positions = resume.Content.Positions[:3]
+	}
 
 	browser := rod.New().MustConnect()
 	var wg sync.WaitGroup
@@ -116,8 +119,8 @@ func savePageAsPDF(browser *rod.Browser, source string, target io.Writer) error 
 		MarginLeft:   p(0.0),
 		MarginRight:  p(0.0),
 		MarginBottom: p(0.0),
-		PaperHeight:  p(11.69),
-		PaperWidth:   p(8.5),
+		PaperHeight:  p(10.0),
+		PaperWidth:   p(8.0),
 		PageRanges:   "1",
 	})
 	if err != nil {

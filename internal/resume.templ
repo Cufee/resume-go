@@ -81,6 +81,13 @@ templ resumeContent(data Content) {
 		for _, data := range data.Positions {
 			@position(data)
 		}
+		if data.ExpandURL.String() != "" {
+			<a href={ templ.URL(data.ExpandURL.String()) } target="_blank" class="flex gap-2 justify-center items-center p-2 rounded-full">
+				<div class="w-2 h-2 rounded-full bg-base-300"></div>
+				<div class="w-2 h-2 rounded-full bg-base-300"></div>
+				<div class="w-2 h-2 rounded-full bg-base-300"></div>
+			</a>
+		}
 	</div>
 }
 

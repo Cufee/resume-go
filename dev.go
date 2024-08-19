@@ -24,7 +24,9 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-
+	if len(resume.Content.Positions) > 3 {
+		resume.Content.Positions = resume.Content.Positions[:3]
+	}
 	resume.Fill(nil)
 
 	err = os.MkdirAll("build", os.ModePerm)
