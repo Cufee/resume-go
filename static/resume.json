@@ -13,8 +13,8 @@
                 "url": "https://github.com/cufee"
             },
             {
-                "label": "resume.kouzin.net",
-                "url": "https://resume.kouzin.net"
+                "label": "$CURRENT_URI/resume.kouzin.net",
+                "url": "$CURRENT_URL/https://resume.kouzin.net"
             },
             {
                 "label": "linkedin.com/in/vkouzin",

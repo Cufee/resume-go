@@ -178,8 +178,8 @@ templ project(data Project) {
 }
 
 templ linkable(data Linkable, class ...string) {
-	if data.URL.Valid {
-		<a target="_blank" class={ "py-4", "flex", "flex-row", "gap-1", "items-center", "badge", templ.Classes(class) } href={ templ.URL(data.URL.String) }>
+	if data.URL.String() != "" {
+		<a target="_blank" class={ "py-4", "flex", "flex-row", "gap-1", "items-center", "badge", templ.Classes(class) } href={ templ.URL(data.URL.String()) }>
 			<span class="size-4 print:hidden">
 				@linkIcon()
 			</span>
