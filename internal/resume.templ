@@ -30,7 +30,7 @@ templ Index(assetsPath string, data Resume) {
 			<link rel="icon" href={ assetsPath + "/favicon.svg" }/>
 		</head>
 		<body class="flex flex-col justify-center w-screen">
-			<a id="download" href="/resume.pdf" download={ filename(data.Header.Title.String()) } class="sticky top-0 flex items-center justify-between w-full gap-2 p-2 transition-all duration-500 opacity-80 print:hidden bg-neutral hover:opacity-100 text-neutral-content">
+			<a id="download" href="resume.pdf" download={ filename(data.Header.Title.String()) } class="sticky top-0 flex items-center justify-between w-full gap-2 p-2 transition-all duration-500 opacity-80 print:hidden bg-neutral hover:opacity-100 text-neutral-content">
 				<span class="size-6">
 					@downloadIcon()
 				</span>
