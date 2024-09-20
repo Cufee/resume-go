@@ -23,7 +23,7 @@
         ]
     },
     "content": {
-        "summary": "Experienced software engineer with a passion for solving complex problems efficiently. Seeking a remote position to contribute to an innovative team focused on quality and growth.",
+        "summary": "Thank you for giving me this opportunity! I am an experienced software engineer with great passion for delivering exceptional user experiences with no compromises on performance. I am extremely quick at making myself comfortable with unfamiliar technologies and adapting them to solve complex problems efficiently. While I have a lot of love for Go, I am ready to adapt to the ever changing requirements and deliver exceptional software.",
         "expandUrl": "https://linkedin.com/in/vkouzin/",
         "positions": [
             {
@@ -42,10 +42,11 @@
                     "$TECHNOLOGY_CLOUD_PRIMARY/GCP"
                 ],
                 "bullets": [
-                    "Led the refactoring of a large codebase, consolidating over 7 microservices into a single, highly efficient application, improving overall system performance by 40%.",
-                    "Migrated the database layer from MongoDB to SQLite, resulting in a 50% reduction in query latency and a more lightweight, easily maintainable storage solution.",
-                    "Drove a 70% reduction in code duplication and technical debt through meticulous code refactoring and the implementation of best practices.",
-                    "Improved system reliability and reduced bug incidence by 60%, ensuring a more stable and robust application architecture."
+                    "I am focusing on delivering the best possible user experience, while maintaining exceptional application performance.",
+                    "Consolidated over 7 microservices into a single, highly efficient application, improving overall system performance by 40%.",
+                    "Migrated the database layer from MongoDB to SQLite, resulting in a 50% reduction in query latency and a cleaner code base.",
+                    "Improved system reliability by 60% while migrating from cloud to on-premise compute.",
+                    "Reduced code duplication and technical debt by 70% by refactoring large chunks of the legacy application logic."
                 ],
                 "startedOn": "2023",
                 "finishedOn": ""
@@ -67,16 +68,17 @@
                     "$TECHNOLOGY_CLOUD_PRIMARY/AWS"
                 ],
                 "bullets": [
-                    "Designed and developed multiple high-impact web applications for internal use by engineering and management teams, improving operational efficiency by 50%.",
-                    "Built and deployed a suite of CLI tools that automated repetitive tasks, reducing manual effort by 80% and accelerating the developer onboarding process by 3x.",
-                    "Streamlined Docker Compose configurations, establishing a scalable and maintainable framework that simplified the integration of new services and reduced setup time by 60%.",
-                    "Led a comprehensive refactor of legacy code, slashing CI/CD pipeline run time from over an hour to just 7 minutes, dramatically enhancing development velocity and productivity."
+                    "I focused on providing excellent tooling and refactoring existing legacy code bases to support AlertMedia's hypergrowth.",
+                    "Led a comprehensive refactor effort, reducing CI/CD pipeline run time from over an hour to 7 minutes.",
+                    "Designed and implemented multiple internal applications, improving operational efficiency by 50%.",
+                    "Developed CLI tools, reducing manual effort by 80% and accelerating the developer onboarding process by 3x.",
+                    "Streamlined Docker Compose configurations, creating a scalable framework that simplified the integration of new services and reduced setup time by 60%."
                 ],
                 "startedOn": "2022",
                 "finishedOn": "2023"
             },
             {
-                "title": "$POSITION_TITLE_CP/Platform Engineer",
+                "title": "$POSITION_TITLE_CP/Full Stack Engineer",
                 "location": "Remote",
                 "labels": [
                     {
@@ -92,10 +94,9 @@
                     "$TECHNOLOGY_CLOUD_PRIMARY/GCP"
                 ],
                 "bullets": [
-                    "Engineered highly popular customer-facing tools and add-ons for Chili Piper, significantly expanding the platform's feature set and driving a 25% increase in user engagement.",
-                    "Authored comprehensive documentation and developed \"magic\" scripts, streamlining the onboarding process for new customers, resulting in a 40% reduction in setup time.",
-                    "Developed and launched an internal support portal, aggregating data from multiple sources to create a unified source of truth, empowering the Customer Success team with real-time insights.",
-                    "Managed and optimized a Kubernetes cluster hosting all internal services and tools, ensuring 99.9% uptime and seamless scalability to meet growing operational demand."
+                    "I focused on providing excellent internal tooling, allowing our team to quickly become an industry leader in Customer Support.",
+                    "Designed and implemented an internal support portal, aggregating data from various services and tools, allowing for industry leading support resolution times and 100% satisfaction rating.",
+                    "Developed performant customer-facing tools and add-ons, reducing onboarding times by 40%."
                 ],
                 "startedOn": "2021",
                 "finishedOn": "2022"
@@ -115,7 +116,7 @@
                 ],
                 "bullets": [
                     "Developed custom tools and scripts, optimizing workflow organization and efficiency, leading to a 24% improvement in task completion speed.",
-                    "Authored detailed documentation for troubleshooting hardware and software issues, reducing incident resolution time by 13%.",
+                    "Wrote detailed documentation for troubleshooting hardware and software issues, reducing ticket resolution time by 13%.",
                     "Managed and safeguarded highly confidential information, ensuring compliance with data security protocols."
                 ],
                 "startedOn": "2020",
