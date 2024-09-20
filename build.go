@@ -68,6 +68,8 @@ func main() {
 	}
 
 	for v, data := range variations {
+		data["CURRENT_URL"] = "https://resume.kouzin.net/" + v
+		data["CURRENT_URI"] = "resume.kouzin.net/" + v
 		wg.Add(1)
 		go func() {
 			defer wg.Done()

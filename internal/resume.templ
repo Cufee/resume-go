@@ -30,14 +30,14 @@ templ Index(assetsPath string, data Resume) {
 			<link rel="icon" href={ assetsPath + "/favicon.svg" }/>
 		</head>
 		<body class="flex flex-col justify-center w-screen">
-			<a id="download" href="/resume.pdf" download={ filename(data.Header.Title.String()) } class="flex sticky top-0 gap-2 justify-between items-center p-2 w-full opacity-80 transition-all duration-500 print:hidden bg-neutral hover:opacity-100 text-neutral-content">
+			<a id="download" href="resume.pdf" download={ filename(data.Header.Title.String()) } class="sticky top-0 flex items-center justify-between w-full gap-2 p-2 transition-all duration-500 opacity-80 print:hidden bg-neutral hover:opacity-100 text-neutral-content">
 				<span class="size-6">
 					@downloadIcon()
 				</span>
 				<span class="text-xl">Dowload as PDF</span>
 				<div class="w-6"></div>
 			</a>
-			<div class="flex flex-col gap-8 justify-center p-8 m-auto text-xl text-justify max-w-fit md:flex-row forced-color-adjust-none print:p-12">
+			<div class="flex flex-col justify-center gap-8 p-8 m-auto text-xl text-justify max-w-fit md:flex-row forced-color-adjust-none print:p-12">
 				<div class="flex flex-col gap-2 grow">
 					@resumeHeader(data.Header)
 					@resumeContent(data.Content)
@@ -50,20 +50,20 @@ templ Index(assetsPath string, data Resume) {
 
 templ resumeHeader(data Header) {
 	<div class="flex flex-col gap-4">
-		<div class="flex flex-col gap-2 justify-between sm:flex-row">
+		<div class="flex flex-col justify-between gap-2 sm:flex-row">
 			<div class="flex flex-row justify-center">
 				<div class="flex flex-col text-nowrap">
 					<span class="text-3xl font-bold">{ data.Title.String() }</span>
 					<span>{ data.Subtitle.String() }</span>
 				</div>
 			</div>
-			<div class="flex flex-row flex-wrap gap-2 justify-center">
+			<div class="flex flex-row flex-wrap justify-center gap-2">
 				for _, label := range data.Labels {
 					@linkable(label, "badge-primary", "badge-outline", "badge-lg")
 				}
 			</div>
 		</div>
-		<div class="flex flex-row flex-wrap gap-2 justify-center lg:justify-around">
+		<div class="flex flex-row flex-wrap justify-center gap-2 lg:justify-around">
 			for _, link := range data.Links {
 				@linkable(link, "badge-lg", "badge-outline")
 			}
@@ -84,7 +84,7 @@ templ resumeContent(data Content) {
 			@position(data)
 		}
 		if data.ExpandURL.String() != "" {
-			<a href={ templ.URL(data.ExpandURL.String()) } target="_blank" class="flex gap-2 justify-center items-center p-2 rounded-full">
+			<a href={ templ.URL(data.ExpandURL.String()) } target="_blank" class="flex items-center justify-center gap-2 p-2 rounded-full">
 				<div class="w-2 h-2 rounded-full bg-base-300"></div>
 				<div class="w-2 h-2 rounded-full bg-base-300"></div>
 				<div class="w-2 h-2 rounded-full bg-base-300"></div>
@@ -95,7 +95,7 @@ templ resumeContent(data Content) {
 
 templ position(data Position) {
 	<div class="flex flex-col gap-2">
-		<div class="flex flex-row gap-2 items-center">
+		<div class="flex flex-row items-center gap-2">
 			if data.StartedOn.String() != "" {
 				<div class="h-2 rounded-full bg-base-200 grow max-w-8"></div>
 				<div class="py-3 text-base badge bg-base-300">{ data.StartedOn.String() }</div>
@@ -107,16 +107,16 @@ templ position(data Position) {
 			}
 		</div>
 		<div class="flex flex-col">
-			<div class="flex flex-col gap-1 justify-between items-center md:flex-row md:flex-wrap">
+			<div class="flex flex-col items-center justify-between gap-1 md:flex-row md:flex-wrap">
 				<span class="text-2xl font-bold text-center">{ data.Title.String() }</span>
-				<div class="flex flex-row flex-wrap gap-2 justify-center sm:justify-start">
+				<div class="flex flex-row flex-wrap justify-center gap-2 sm:justify-start">
 					for _, label := range data.Labels {
 						@linkable(label, "badge-lg", "w-32", "justify-center", "flex", "gap-1", "badge-outline")
 					}
 				</div>
 			</div>
 		</div>
-		<div class="flex flex-row flex-wrap gap-1 justify-center items-center md:justify-start">
+		<div class="flex flex-row flex-wrap items-center justify-center gap-1 md:justify-start">
 			for _, name := range data.Technologies {
 				<span class="badge badge-lg badge-primary badge-outline">{ name.String() }</span>
 			}
@@ -156,16 +156,16 @@ templ resumeSidebar(data Sidebar) {
 templ project(data Project) {
 	<div class="flex flex-col gap-2">
 		<div class="flex flex-col">
-			<div class="flex flex-col gap-1 justify-between items-center md:flex-row md:flex-wrap">
+			<div class="flex flex-col items-center justify-between gap-1 md:flex-row md:flex-wrap">
 				<span class="text-2xl font-bold text-center">{ data.Title.String() }</span>
-				<div class="flex flex-row flex-wrap gap-2 justify-center sm:justify-start print:hidden">
+				<div class="flex flex-row flex-wrap justify-center gap-2 sm:justify-start print:hidden">
 					for _, label := range data.Labels {
 						@linkable(label, "badge-lg", "w-24", "justify-center", "flex", "gap-1", "badge-outline")
 					}
 				</div>
 			</div>
 		</div>
-		<div class="flex flex-row flex-wrap gap-1 justify-center items-center md:justify-start">
+		<div class="flex flex-row flex-wrap items-center justify-center gap-1 md:justify-start">
 			for _, name := range data.Technologies {
 				<span class="badge badge-lg badge-primary badge-outline">{ name.String() }</span>
 			}
@@ -178,8 +178,8 @@ templ project(data Project) {
 }
 
 templ linkable(data Linkable, class ...string) {
-	if data.URL.Valid {
-		<a target="_blank" class={ "py-4", "flex", "flex-row", "gap-1", "items-center", "badge", templ.Classes(class) } href={ templ.URL(data.URL.String) }>
+	if data.URL.String() != "" {
+		<a target="_blank" class={ "py-4", "flex", "flex-row", "gap-1", "items-center", "badge", templ.Classes(class) } href={ templ.URL(data.URL.String()) }>
 			<span class="size-4 print:hidden">
 				@linkIcon()
 			</span>

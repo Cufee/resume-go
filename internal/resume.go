@@ -3,8 +3,6 @@ package internal
 import (
 	"encoding/json"
 	"strings"
-
-	"github.com/volatiletech/null/v8"
 )
 
 func LoadResumeJSON(data []byte) (Resume, error) {
@@ -126,12 +124,13 @@ func (p *Position) Fill(variables map[string]string) {
 }
 
 type Linkable struct {
-	URL   null.String `json:"url"`
-	Label Text        `json:"label"`
+	URL   Text `json:"url"`
+	Label Text `json:"label"`
 }
 
 func (l *Linkable) Fill(variables map[string]string) {
 	l.Label.Fill(variables)
+	l.URL.Fill(variables)
 }
 
 type Text string

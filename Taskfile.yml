@@ -1,0 +1,9 @@
+version: 3
+
+tasks:
+  generate:
+    cmd: go generate ./...
+  build:
+    cmds:
+      - task: generate  
+      - go run build.go
