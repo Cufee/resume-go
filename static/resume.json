@@ -23,7 +23,7 @@
         ]
     },
     "content": {
-        "summary": "$CONTENT_SUMMARY/Thank you for giving me this opportunity! I am an experienced software engineer with great passion for delivering exceptional user experiences with no compromises on performance. I am extremely quick at making myself comfortable with unfamiliar technologies and adapting them to solve complex problems efficiently. While I have a lot of love for Go, I am ready to adapt to the ever changing requirements and deliver exceptional software.",
+        "summary": "$CONTENT_SUMMARY/Thank you for giving me this opportunity! I am an experienced software engineer with great passion for delivering exceptional user experiences with no compromises on performance. I am extremely quick at making myself comfortable with unfamiliar technologies and adapting them to solve complex problems efficiently.",
         "expandUrl": "https://linkedin.com/in/vkouzin/",
         "positions": [
             {
@@ -44,9 +44,7 @@
                 "bullets": [
                     "I am focusing on delivering the best possible user experience, while maintaining exceptional application performance.",
                     "Consolidated over 7 microservices into a single, highly efficient application, improving overall system performance by 40%.",
-                    "Migrated the database layer from MongoDB to SQLite, resulting in a 50% reduction in query latency and a cleaner code base.",
-                    "Improved system reliability by 60% while migrating from cloud to on-premise compute.",
-                    "Reduced code duplication and technical debt by 70% by refactoring large chunks of the legacy application logic."
+                    "Improved system reliability by 60% while migrating from cloud to on-premise compute."
                 ],
                 "startedOn": "2023",
                 "finishedOn": ""
@@ -70,12 +68,33 @@
                 "bullets": [
                     "I focused on providing excellent tooling and refactoring existing legacy code bases to support AlertMedia's hypergrowth.",
                     "Led a comprehensive refactor effort, reducing CI/CD pipeline run time from over an hour to 7 minutes.",
-                    "Designed and implemented multiple internal applications, improving operational efficiency by 50%.",
                     "Developed CLI tools, reducing manual effort by 80% and accelerating the developer onboarding process by 3x.",
-                    "Streamlined Docker Compose configurations, creating a scalable framework that simplified the integration of new services and reduced setup time by 60%."
+                    "Created a scalable framework based on Docker Compose, simplified the integration of new services and reduced setup time by 60%."
                 ],
                 "startedOn": "2022",
                 "finishedOn": "2023"
+            },
+            {
+                "title": "$POSITION_TITLE_KT/Backend Engineer",
+                "location": "Remote",
+                "labels": [
+                    {
+                        "url": "https://www.kosmotime.com/",
+                        "label": "KosmoTime"
+                    }
+                ],
+                "technologies": [
+                    "Go",
+                    "Kubernetes",
+                    "$TECHNOLOGY_CLOUD_PRIMARY/GCP"
+                ],
+                "bullets": [
+                    "I focused on writing high quality, maintainable code allowing our team to ship new features with a very high degree of confidence.",
+                    "Refactored and maintained existing backend code, or our primary web application.",
+                    "Shipped new features, worked through the backlog of feature requests and improvements."
+                ],
+                "startedOn": "2022",
+                "finishedOn": "2022"
             },
             {
                 "title": "$POSITION_TITLE_CP/Full Stack Engineer",
@@ -95,7 +114,7 @@
                 ],
                 "bullets": [
                     "I focused on providing excellent internal tooling, allowing our team to quickly become an industry leader in Customer Support.",
-                    "Designed and implemented an internal support portal, aggregating data from various services and tools, allowing for industry leading support resolution times and 100% satisfaction rating.",
+                    "Designed and implemented an internal support portal, aggregating data from various services and tools, contributing to industry leading support resolution times.",
                     "Developed performant customer-facing tools and add-ons, reducing onboarding times by 40%."
                 ],
                 "startedOn": "2021",
@@ -146,6 +165,19 @@
         ],
         "projects": [
             {
+                "title": "Listik",
+                "technologies": [
+                    "Svelte",
+                    "Bun"
+                ],
+                "labels": [
+                    {
+                        "label": "GitHub"
+                    }
+                ],
+                "description": "A user-friendly application for collaborating on shopping lists. Listik is designed to be extremely fast and simple, while delivering an amazing experience for users to collaborate in real time. "
+            },
+            {
                 "title": "Feedlr",
                 "technologies": [
                     "Go",
@@ -163,8 +195,7 @@
                 "title": "Aftermath",
                 "technologies": [
                     "Go",
-                    "React",
-                    "HTMX"
+                    "Web Components"
                 ],
                 "labels": [
                     {

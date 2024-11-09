@@ -95,17 +95,6 @@ templ resumeContent(data Content) {
 
 templ position(data Position) {
 	<div class="flex flex-col gap-2">
-		<div class="flex flex-row items-center gap-2">
-			if data.StartedOn.String() != "" {
-				<div class="h-2 rounded-full bg-base-200 grow max-w-8"></div>
-				<div class="py-3 text-base badge bg-base-300">{ data.StartedOn.String() }</div>
-			}
-			<div class="h-2 rounded-full bg-base-300 grow"></div>
-			if data.FinishedOn.String() != "" {
-				<div class="py-3 text-base badge bg-base-300">{ data.FinishedOn.String() }</div>
-				<div class="h-2 rounded-full bg-base-200 grow max-w-8"></div>
-			}
-		</div>
 		<div class="flex flex-col">
 			<div class="flex flex-col items-center justify-between gap-1 md:flex-row md:flex-wrap">
 				<span class="text-2xl font-bold text-center">{ data.Title.String() }</span>
@@ -121,6 +110,17 @@ templ position(data Position) {
 				<span class="badge badge-lg badge-primary badge-outline">{ name.String() }</span>
 			}
 		</div>
+		<div class="flex flex-row items-center gap-2">
+			if data.StartedOn.String() != "" {
+				<div class="h-2 rounded-full bg-base-200 grow max-w-8"></div>
+				<div class="py-3 text-base badge bg-base-300">{ data.StartedOn.String() }</div>
+			}
+			<div class="h-2 rounded-full bg-base-300 grow"></div>
+			if data.FinishedOn.String() != "" {
+				<div class="py-3 text-base badge bg-base-300">{ data.FinishedOn.String() }</div>
+				<div class="h-2 rounded-full bg-base-200 grow max-w-8"></div>
+			}
+		</div>
 		<ol class="flex flex-col gap-2 list-disc">
 			for _, bullet := range data.Bullets {
 				<li class="ml-4 marker:text-neutral"><span>{ bullet.String() }</span></li>
@@ -130,25 +130,33 @@ templ position(data Position) {
 }
 
 templ resumeSidebar(data Sidebar) {
-	<div class="flex flex-col gap-8">
+	<div class="flex flex-col gap-8 w-fit">
 		<div class="flex flex-col gap-2">
 			<span class="text-2xl font-bold">
 				Skills
 				<hr/>
 			</span>
-			for _, group := range data.Skills {
+			for i, group := range data.Skills {
 				<ol class="flex flex-col list-disc">
 					for _, skill := range group {
 						<li class="ml-4 text-nowrap">{ skill.String() } </li>
 					}
 				</ol>
-				<hr/>
+				if i != len(data.Skills)-1 {
+					<hr/>
+				}
 			}
 		</div>
-		<div class="flex flex-col gap-8">
-			for _, data := range data.Projects {
-				@project(data)
-			}
+		<div class="flex flex-col gap-4">
+			<span class="text-2xl font-bold">
+				Projects
+				<hr/>
+			</span>
+			<div class="flex flex-col gap-8">
+				for _, data := range data.Projects {
+					@project(data)
+				}
+			</div>
 		</div>
 	</div>
 }

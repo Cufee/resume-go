@@ -43,8 +43,8 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	if len(resume.Content.Positions) > 3 {
-		resume.Content.Positions = resume.Content.Positions[:3]
+	if len(resume.Content.Positions) > 4 {
+		resume.Content.Positions = resume.Content.Positions[:4]
 	}
 
 	browser := rod.New().MustConnect()
