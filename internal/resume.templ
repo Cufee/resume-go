@@ -37,7 +37,7 @@ templ Index(assetsPath string, data Resume) {
 				<span class="text-xl">Dowload as PDF</span>
 				<div class="w-6"></div>
 			</a>
-			<div class="flex flex-col justify-center gap-8 p-8 m-auto text-xl text-justify max-w-fit md:flex-row forced-color-adjust-none print:p-12">
+			<div class="flex flex-col justify-center gap-8 p-8 m-auto text-xl max-w-fit md:flex-row forced-color-adjust-none print:p-12">
 				<div class="flex flex-col gap-2 grow">
 					@resumeHeader(data.Header)
 					@resumeContent(data.Content)
@@ -94,23 +94,23 @@ templ resumeContent(data Content) {
 }
 
 templ position(data Position) {
-	<div class="flex flex-col gap-2">
-		<div class="flex flex-col">
-			<div class="flex flex-col items-center justify-between gap-1 md:flex-row md:flex-wrap">
+	<div class="flex flex-col items-start gap-2">
+		<div class="flex flex-col w-full">
+			<div class="flex flex-wrap items-center justify-between gap-1">
 				<span class="text-2xl font-bold text-center">{ data.Title.String() }</span>
 				<div class="flex flex-row flex-wrap justify-center gap-2 sm:justify-start">
 					for _, label := range data.Labels {
-						@linkable(label, "badge-lg", "w-32", "justify-center", "flex", "gap-1", "badge-outline")
+						@linkable(label, "badge-lg", "justify-center", "flex", "gap-1", "badge-outline")
 					}
 				</div>
 			</div>
 		</div>
-		<div class="flex flex-row flex-wrap items-center justify-center gap-1 md:justify-start">
+		<div class="flex flex-row flex-wrap items-center justify-start w-full gap-1">
 			for _, name := range data.Technologies {
 				<span class="badge badge-lg badge-primary badge-outline">{ name.String() }</span>
 			}
 		</div>
-		<div class="flex flex-row items-center gap-2">
+		<div class="flex flex-row items-center w-full gap-2">
 			if data.StartedOn.String() != "" {
 				<div class="h-2 rounded-full bg-base-200 grow max-w-8"></div>
 				<div class="py-3 text-base badge bg-base-300">{ data.StartedOn.String() }</div>
@@ -152,9 +152,12 @@ templ resumeSidebar(data Sidebar) {
 				Projects
 				<hr/>
 			</span>
-			<div class="flex flex-col gap-8">
-				for _, data := range data.Projects {
-					@project(data)
+			<div class="flex flex-col gap-2">
+				for i, proj := range data.Projects {
+					@project(proj)
+					if i != len(data.Projects)-1 {
+						<hr/>
+					}
 				}
 			</div>
 		</div>
@@ -164,16 +167,16 @@ templ resumeSidebar(data Sidebar) {
 templ project(data Project) {
 	<div class="flex flex-col gap-2">
 		<div class="flex flex-col">
-			<div class="flex flex-col items-center justify-between gap-1 md:flex-row md:flex-wrap">
-				<span class="text-2xl font-bold text-center">{ data.Title.String() }</span>
-				<div class="flex flex-row flex-wrap justify-center gap-2 sm:justify-start print:hidden">
+			<div class="flex flex-row flex-wrap justify-between gap-1">
+				<span class="text-2xl font-bold">{ data.Title.String() }</span>
+				<div class="flex flex-row flex-wrap justify-start gap-2 print:hidden">
 					for _, label := range data.Labels {
-						@linkable(label, "badge-lg", "w-24", "justify-center", "flex", "gap-1", "badge-outline")
+						@linkable(label, "badge-lg", "justify-center", "flex", "gap-1", "badge-outline")
 					}
 				</div>
 			</div>
 		</div>
-		<div class="flex flex-row flex-wrap items-center justify-center gap-1 md:justify-start">
+		<div class="flex flex-row flex-wrap items-center justify-start gap-1">
 			for _, name := range data.Technologies {
 				<span class="badge badge-lg badge-primary badge-outline">{ name.String() }</span>
 			}
@@ -181,20 +184,19 @@ templ project(data Project) {
 		<span>
 			{ data.Description.String() }
 		</span>
-		<hr/>
 	</div>
 }
 
 templ linkable(data Linkable, class ...string) {
 	if data.URL.String() != "" {
-		<a target="_blank" class={ "py-4", "flex", "flex-row", "gap-1", "items-center", "badge", templ.Classes(class) } href={ templ.URL(data.URL.String()) }>
+		<a target="_blank" class={ "py-3", "flex", "flex-row", "gap-1", "items-center", "badge", templ.Classes(class) } href={ templ.URL(data.URL.String()) }>
 			<span class="size-4 print:hidden">
 				@linkIcon()
 			</span>
 			{ data.Label.String() }
 		</a>
 	} else {
-		<span class={ "py-4", "badge", templ.Classes(class) }>{ data.Label.String() }</span>
+		<span class={ "py-3", "badge", templ.Classes(class) }>{ data.Label.String() }</span>
 	}
 }
 

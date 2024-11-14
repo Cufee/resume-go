@@ -37,9 +37,7 @@
                 "technologies": [
                     "Go",
                     "React",
-                    "CI/CD",
-                    "Docker",
-                    "$TECHNOLOGY_CLOUD_PRIMARY/GCP"
+                    "CI/CD"
                 ],
                 "bullets": [
                     "I am focusing on delivering the best possible user experience, while maintaining exceptional application performance.",
@@ -61,9 +59,7 @@
                 "technologies": [
                     "$TECHNOLOGY_JS_RUNTIME/Node.js",
                     "$TECHNOLOGY_FE_LIBRARY/React",
-                    "OpenAI",
-                    "Terraform",
-                    "$TECHNOLOGY_CLOUD_PRIMARY/AWS"
+                    "Terraform"
                 ],
                 "bullets": [
                     "I focused on providing excellent tooling and refactoring existing legacy code bases to support AlertMedia's hypergrowth.",
@@ -108,9 +104,7 @@
                 "technologies": [
                     "Go",
                     "$TECHNOLOGY_JS_RUNTIME/Node.js",
-                    "$TECHNOLOGY_FE_LIBRARY/React",
-                    "Kubernetes",
-                    "$TECHNOLOGY_CLOUD_PRIMARY/GCP"
+                    "$TECHNOLOGY_FE_LIBRARY/React"
                 ],
                 "bullets": [
                     "I focused on providing excellent internal tooling, allowing our team to quickly become an industry leader in Customer Support.",
@@ -170,11 +164,7 @@
                     "Svelte",
                     "Bun"
                 ],
-                "labels": [
-                    {
-                        "label": "GitHub"
-                    }
-                ],
+                "labels": [],
                 "description": "A user-friendly application for collaborating on shopping lists. Listik is designed to be extremely fast and simple, while delivering an amazing experience for users to collaborate in real time. "
             },
             {
@@ -211,11 +201,7 @@
                     "TypeScript",
                     "Deno"
                 ],
-                "labels": [
-                    {
-                        "label": "GitHub"
-                    }
-                ],
+                "labels": [],
                 "description": "User-friendly CLI tool for fast git repository management."
             }
         ]
