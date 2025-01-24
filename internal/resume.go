@@ -1,7 +1,10 @@
 package internal
 
 import (
+	"context"
 	"encoding/json"
+	"io"
+	"regexp"
 	"strings"
 )
 
@@ -27,38 +30,21 @@ func (r *Resume) Fill(variables map[string]string) {
 }
 
 type Header struct {
-	Title    Text       `json:"title"`
-	Subtitle Text       `json:"subtitle"`
-	Labels   []Linkable `json:"labels"`
-	Links    []Linkable `json:"links"`
+	Title    Text `json:"title"`
+	Subtitle Text `json:"subtitle"`
 }
 
 func (h *Header) Fill(variables map[string]string) {
 	h.Title.Fill(variables)
 	h.Subtitle.Fill(variables)
-	for i, l := range h.Labels {
-		l.Fill(variables)
-		h.Labels[i] = l
-	}
-	for i, l := range h.Links {
-		l.Fill(variables)
-		h.Links[i] = l
-	}
 }
 
 type Sidebar struct {
-	Skills   [][]Text  `json:"skills"`
-	Projects []Project `json:"projects"`
+	Skills   [][]string `json:"skills"`
+	Projects []Project  `json:"projects"`
 }
 
 func (s *Sidebar) Fill(variables map[string]string) {
-	for i, skills := range s.Skills {
-		for j, skill := range skills {
-			skill.Fill(variables)
-			skills[j] = skill
-		}
-		s.Skills[i] = skills
-	}
 	for i, p := range s.Projects {
 		p.Fill(variables)
 		s.Projects[i] = p
@@ -67,20 +53,16 @@ func (s *Sidebar) Fill(variables map[string]string) {
 
 type Project struct {
 	Entry
-	Description Text `json:"description"`
+	Link    string `json:"link,omitempty"`
+	Bullets []Text `json:"bullets"`
 }
 
 func (p *Project) Fill(variables map[string]string) {
 	p.Title.Fill(variables)
-	for i, l := range p.Labels {
-		l.Fill(variables)
-		p.Labels[i] = l
+	for i, b := range p.Bullets {
+		b.Fill(variables)
+		p.Bullets[i] = b
 	}
-	for i, t := range p.Technologies {
-		t.Fill(variables)
-		p.Technologies[i] = t
-	}
-	p.Description.Fill(variables)
 }
 
 type Content struct {
@@ -100,6 +82,7 @@ func (c *Content) Fill(variables map[string]string) {
 
 type Position struct {
 	Entry
+	Company    string `json:"company,omitempty"`
 	Bullets    []Text `json:"bullets"`
 	StartedOn  Text   `json:"startedOn"`
 	FinishedOn Text   `json:"finishedOn"`
@@ -107,14 +90,6 @@ type Position struct {
 
 func (p *Position) Fill(variables map[string]string) {
 	p.Title.Fill(variables)
-	for i, l := range p.Labels {
-		l.Fill(variables)
-		p.Labels[i] = l
-	}
-	for i, t := range p.Technologies {
-		t.Fill(variables)
-		p.Technologies[i] = t
-	}
 	for i, b := range p.Bullets {
 		b.Fill(variables)
 		p.Bullets[i] = b
@@ -134,6 +109,22 @@ func (l *Linkable) Fill(variables map[string]string) {
 }
 
 type Text string
+
+func (t Text) Render(ctx context.Context, w io.Writer) error {
+	// Define a regex to find text between ** **
+	re := regexp.MustCompile(`\*\*(.*?)\*\*`)
+
+	// Replace all matches with the desired HTML span
+	result := re.ReplaceAllStringFunc(string(t), func(match string) string {
+		// Extract the content without the **
+		content := strings.TrimPrefix(strings.TrimSuffix(match, "**"), "**")
+		return `<span class="font-bold">` + content + `</span>`
+	})
+
+	// Write the result to the writer
+	_, err := io.WriteString(w, result)
+	return err
+}
 
 func (t Text) String() string {
 	return string(t)
@@ -155,8 +146,7 @@ func (t *Text) Fill(variables map[string]string) {
 }
 
 type Entry struct {
-	Title        Text       `json:"title"`
-	Labels       []Linkable `json:"labels,omitempty"`
-	Location     Text       `json:"location,omitempty"`
-	Technologies []Text     `json:"technologies,omitempty"`
+	Title        Text     `json:"title"`
+	Location     string   `json:"location,omitempty"`
+	Technologies []string `json:"technologies,omitempty"`
 }

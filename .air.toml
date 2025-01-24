@@ -1,5 +1,5 @@
 [build]
-include_ext = ["go", "tmpl", "templ", "html"]
+include_ext = ["go", "tmpl", "templ", "html", "json"]
 exclude_regex = [".*_templ.go", ".*.html"]
 pre_cmd = ["go generate ."]
 cmd = "go build -o ./tmp/main dev.go"
@@ -7,9 +7,9 @@ send_interrupt = true
 stop_on_error = true
 
 [proxy]
-enabled = true
-proxy_port = 8080
+enabled = false
 app_port = 8081
+proxy_port = 8082
 
 [log]
 # Only show main log (silences watcher, build, runner)

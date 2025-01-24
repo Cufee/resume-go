@@ -34,10 +34,6 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	variationsData, err := os.ReadFile("static/resume_variations.json")
-	if err != nil {
-		panic(err)
-	}
 
 	resume, err := internal.LoadResumeJSON(data)
 	if err != nil {
@@ -50,36 +46,9 @@ func main() {
 	browser := rod.New().MustConnect()
 	var wg sync.WaitGroup
 
-	wg.Add(1)
-	go func() {
-		defer wg.Done()
-		println("generating base variation")
-		err = newVariation(browser, "", resume, nil)
-		if err != nil {
-			panic(err)
-		}
-		println("done generating base variation")
-	}()
-
-	var variations map[string]map[string]string
-	err = json.Unmarshal(variationsData, &variations)
+	err = newVariation(browser, "", resume, nil)
 	if err != nil {
 		panic(err)
-	}
-
-	for v, data := range variations {
-		data["CURRENT_URL"] = "https://resume.kouzin.net/" + v
-		data["CURRENT_URI"] = "resume.kouzin.net/" + v
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
-			println("generating variation", v)
-			err := newVariation(browser, v, resume, data)
-			if err != nil {
-				panic(err)
-			}
-			println("done generating variation", v)
-		}()
 	}
 
 	wg.Wait()
@@ -130,9 +99,9 @@ func savePageAsPDF(browser *rod.Browser, source string, target io.Writer) error 
 
 	reader, err := page.PDF(&proto.PagePrintToPDF{
 		Scale:        p(0.58),
-		MarginTop:    p(0.0),
-		MarginLeft:   p(0.0),
-		MarginRight:  p(0.0),
+		MarginTop:    p(0.2),
+		MarginLeft:   p(0.3),
+		MarginRight:  p(0.3),
 		MarginBottom: p(0.0),
 		PaperHeight:  p(10.0),
 		PaperWidth:   p(8.0),

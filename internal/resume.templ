@@ -37,190 +37,148 @@ templ Index(assetsPath string, data Resume) {
 				<span class="text-xl">Dowload as PDF</span>
 				<div class="w-6"></div>
 			</a>
-			<div class="flex flex-col justify-center gap-8 p-8 m-auto text-xl max-w-fit md:flex-row forced-color-adjust-none print:p-12">
-				<div class="flex flex-col gap-2 grow">
-					@resumeHeader(data.Header)
-					@resumeContent(data.Content)
-				</div>
-				@resumeSidebar(data.Sidebar)
+			<div class="flex flex-col justify-center max-w-5xl gap-8 p-8 m-auto print:max-w-fit forced-color-adjust-none print:p-0">
+				@resumeHeader(data.Header)
+				@resumeContent(data.Content)
+				@projects(data.Sidebar)
+				@skills(data.Sidebar)
 			</div>
 		</body>
 	</html>
 }
 
 templ resumeHeader(data Header) {
-	<div class="flex flex-col gap-4">
-		<div class="flex flex-col justify-between gap-2 sm:flex-row">
-			<div class="flex flex-row justify-center">
-				<div class="flex flex-col text-nowrap">
-					<span class="text-3xl font-bold">{ data.Title.String() }</span>
-					<span>{ data.Subtitle.String() }</span>
-				</div>
+	<div class="flex flex-row flex-wrap items-start justify-between gap-2">
+		<div class="flex flex-col">
+			<span class="text-lg">vkouzin@outlook.com</span>
+		</div>
+		<div class="flex flex-col items-center">
+			<span class="text-3xl">Vlad Kouzin</span>
+			<span class="text-lg">resume.kouzin.net</span>
+		</div>
+		<div class="flex flex-col items-end">
+			<div class="flex flex-row gap-1 text-lg">
+				<span>GitHub:</span>
+				<span>Cufee</span>
 			</div>
-			<div class="flex flex-row flex-wrap justify-center gap-2">
-				for _, label := range data.Labels {
-					@linkable(label, "badge-primary", "badge-outline", "badge-lg")
-				}
+			<div class="flex flex-row gap-1 text-lg">
+				<span>LinkedIn:</span>
+				<span>vkouzin</span>
 			</div>
 		</div>
-		<div class="flex flex-row flex-wrap justify-center gap-2 lg:justify-around">
-			for _, link := range data.Links {
-				@linkable(link, "badge-lg", "badge-outline")
-			}
-		</div>
+	</div>
+}
+
+templ hr(label string) {
+	<div>
+		if label != "" {
+			<span class="text-xl font-bold">{ label }</span>
+		}
+		<hr class="w-full h-0.5 rounded-full bg-black"/>
 	</div>
 }
 
 templ resumeContent(data Content) {
 	<div class="flex flex-col gap-8">
 		<div class="flex flex-col gap-2">
-			<span class="text-2xl font-bold">
-				Summary
-				<hr/>
+			@hr("Summary")
+			<span>
+				@data.Summary
 			</span>
-			<span>{ data.Summary.String() }</span>
 		</div>
-		for _, data := range data.Positions {
-			@position(data)
-		}
-		if data.ExpandURL.String() != "" {
-			<a href={ templ.URL(data.ExpandURL.String()) } target="_blank" class="flex items-center justify-center gap-2 p-2 rounded-full">
-				<div class="w-2 h-2 rounded-full bg-base-300"></div>
-				<div class="w-2 h-2 rounded-full bg-base-300"></div>
-				<div class="w-2 h-2 rounded-full bg-base-300"></div>
-			</a>
-		}
+		<div class="flex flex-col gap-4">
+			@hr("Experience")
+			<div class="flex flex-col gap-8">
+				for _, data := range data.Positions {
+					@position(data)
+				}
+			</div>
+		</div>
 	</div>
 }
 
 templ position(data Position) {
 	<div class="flex flex-col items-start gap-2">
 		<div class="flex flex-col w-full">
-			<div class="flex flex-col items-start gap-1 md:flex-row md:flex-wrap md:items-center md:justify-between">
-				<span class="text-2xl font-bold text-center">{ data.Title.String() }</span>
-				if len(data.Labels) > 0 {
-					<div class="flex flex-row flex-wrap justify-center gap-2 sm:justify-start">
-						for _, label := range data.Labels {
-							@linkable(label, "badge-lg", "justify-center", "flex", "gap-1", "badge-outline")
-						}
-					</div>
-				}
+			<div class="grid items-end grid-cols-3 gap-1">
+				<span class="text-xl font-bold text-start">{ data.Company }</span>
+				<div class="flex flex-col items-center">
+					<span class="text-2xl font-bold text-start">
+						@data.Title
+					</span>
+					<span class="text-lg">{ strings.Join(data.Technologies, ", ") }</span>
+				</div>
+				<div class="flex flex-row justify-end gap-1">
+					<span class="text-xl font-bold text-center">
+						@data.StartedOn
+					</span>
+					if string(data.FinishedOn) != "" {
+						<span class="text-xl font-bold text-center">-</span>
+						<span class="text-xl font-bold text-center">
+							@data.FinishedOn
+						</span>
+					}
+				</div>
 			</div>
 		</div>
-		<div class="flex flex-row flex-wrap items-center justify-start w-full gap-1">
-			for _, name := range data.Technologies {
-				<span class="badge badge-lg badge-primary badge-outline">{ name.String() }</span>
-			}
-		</div>
-		<div class="flex flex-row items-center w-full gap-2">
-			if data.StartedOn.String() != "" {
-				<div class="h-2 rounded-full bg-base-200 grow max-w-8"></div>
-				<div class="py-3 text-base badge bg-base-300">{ data.StartedOn.String() }</div>
-			}
-			<div class="h-2 rounded-full bg-base-300 grow"></div>
-			if data.FinishedOn.String() != "" {
-				<div class="py-3 text-base badge bg-base-300">{ data.FinishedOn.String() }</div>
-				<div class="h-2 rounded-full bg-base-200 grow max-w-8"></div>
-			}
-		</div>
-		<ol class="flex flex-col gap-2 list-disc">
+		<ol class="flex flex-col list-disc">
 			for _, bullet := range data.Bullets {
-				<li class="ml-4 marker:text-neutral"><span>{ bullet.String() }</span></li>
+				<li class="ml-6 marker:text-neutral">
+					<span>
+						@bullet
+					</span>
+				</li>
 			}
 		</ol>
 	</div>
 }
 
-templ resumeSidebar(data Sidebar) {
-	<div class="flex flex-col gap-8 w-fit">
-		<div class="flex flex-col gap-2">
-			<span class="text-2xl font-bold">
-				Skills
-				<hr/>
-			</span>
-			for i, group := range data.Skills {
-				<ol class="flex flex-col list-disc">
-					for _, skill := range group {
-						<li class="ml-4 text-nowrap">{ skill.String() } </li>
-					}
-				</ol>
-				if i != len(data.Skills)-1 {
-					<hr/>
-				}
+templ projects(data Sidebar) {
+	<div class="flex flex-col gap-4">
+		@hr("Projects")
+		<div class="flex flex-col gap-4">
+			for _, proj := range data.Projects {
+				@project(proj)
 			}
 		</div>
-		<div class="flex flex-col gap-4">
-			<span class="text-2xl font-bold">
-				Projects
-				<hr/>
-			</span>
-			<div class="flex flex-col gap-2">
-				for i, proj := range data.Projects {
-					@project(proj)
-					if i != len(data.Projects)-1 {
-						<hr/>
-					}
-				}
-			</div>
-		</div>
+	</div>
+}
+
+templ skills(data Sidebar) {
+	<div class="flex flex-col gap-2">
+		@hr("Skills")
+		<ol class="flex flex-col ml-6 list-disc">
+			for _, group := range data.Skills {
+				<li>{ strings.Join(group, ", ") }</li>
+			}
+		</ol>
 	</div>
 }
 
 templ project(data Project) {
-	<div class="flex flex-col gap-2">
-		<div class="flex flex-col">
-			<div class="flex flex-col items-start gap-1 md:flex-row md:flex-wrap md:justify-between">
-				<span class="text-2xl font-bold">{ data.Title.String() }</span>
-				if len(data.Labels) > 0 {
-					<div class="flex flex-row flex-wrap justify-start gap-2 print:hidden">
-						for _, label := range data.Labels {
-							@linkable(label, "badge-lg", "justify-center", "flex", "gap-1", "badge-outline")
-						}
-					</div>
+	<div class="flex flex-col">
+		<div class="flex flex-col justify-end">
+			<div class="flex flex-col items-start">
+				<div class="flex flex-row items-center justify-between w-full">
+					<span class="text-2xl font-bold">
+						@data.Title
+					</span>
+				</div>
+				if data.Link != "" {
+					<span class="italic">{ data.Link }</span>
 				}
 			</div>
 		</div>
-		<div class="flex flex-row flex-wrap items-center justify-start gap-1">
-			for _, name := range data.Technologies {
-				<span class="badge badge-lg badge-primary badge-outline">{ name.String() }</span>
+		<ol class="flex flex-col list-disc">
+			for _, bullet := range data.Bullets {
+				<li class="ml-6 marker:text-neutral">
+					<span>
+						@bullet
+					</span>
+				</li>
 			}
-		</div>
-		<span>
-			{ data.Description.String() }
-		</span>
+		</ol>
 	</div>
-}
-
-templ linkable(data Linkable, class ...string) {
-	if data.URL.String() != "" {
-		<a target="_blank" class={ "py-3", "flex", "flex-row", "gap-1", "items-center", "badge", templ.Classes(class) } href={ templ.URL(data.URL.String()) }>
-			<span class="size-4 print:hidden">
-				@linkIcon()
-			</span>
-			{ data.Label.String() }
-		</a>
-	} else {
-		<span class={ "py-3", "badge", templ.Classes(class) }>{ data.Label.String() }</span>
-	}
-}
-
-templ linkIcon() {
-	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-		<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"></path>
-	</svg>
-}
-
-templ lockIcon() {
-	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-		<path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"></path>
-	</svg>
-}
-
-templ locationIcon() {
-	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-		<path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
-		<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"></path>
-	</svg>
 }
 
 templ downloadIcon() {

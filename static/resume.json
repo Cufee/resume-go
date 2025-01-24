@@ -29,43 +29,27 @@
             {
                 "title": "$POSITION_TITLE_VD/Full Stack Engineer",
                 "location": "Remote",
-                "labels": [
-                    {
-                        "label": "Zont"
-                    }
-                ],
-                "technologies": [
-                    "Go",
-                    "React",
-                    "CI/CD"
-                ],
+                "company": "Zont",
                 "bullets": [
                     "I am focusing on delivering the best possible user experience, while maintaining exceptional application performance.",
-                    "Consolidated over 7 microservices into a single, highly efficient application, improving overall system performance by 40%.",
-                    "Improved system reliability by 60% while migrating from cloud to on-premise compute."
+                    "Consolidated over 7 microservices into a single, highly efficient **Go** application, improving overall system performance by 40%.",
+                    "Refactored existing deployment configurations in order to facilitate a cloud to **on-premise compute** migration.",
+                    "Migrated existing code bases from **MongoDB** to **SQLite** and **libsql**."
                 ],
                 "startedOn": "2023",
-                "finishedOn": ""
+                "finishedOn": "Present"
             },
             {
                 "title": "$POSITION_TITLE_AM/Platform Engineer",
                 "location": "Austin, TX",
-                "labels": [
-                    {
-                        "url": "https://www.alertmedia.com",
-                        "label": "AlertMedia"
-                    }
-                ],
-                "technologies": [
-                    "$TECHNOLOGY_JS_RUNTIME/Node.js",
-                    "$TECHNOLOGY_FE_LIBRARY/React",
-                    "Terraform"
-                ],
+                "company": "AlertMedia",
                 "bullets": [
-                    "I focused on providing excellent tooling and refactoring existing legacy code bases to support AlertMedia's hypergrowth.",
-                    "Led a comprehensive refactor effort, reducing CI/CD pipeline run time from over an hour to 7 minutes.",
-                    "Developed CLI tools, reducing manual effort by 80% and accelerating the developer onboarding process by 3x.",
-                    "Created a scalable framework based on Docker Compose, simplified the integration of new services and reduced setup time by 60%."
+                    "I focused on providing excellent tooling and refactoring a legacy **Python** code base to support AlertMedia's hypergrowth.",
+                    "Led a comprehensive **Docker Compose** configuration refactor effort, improving developer experience and automating developer onboarding.",
+                    "Led a migration from **BitBucket** to **CircleCI**, reducing CI/CD pipeline run time from over an hour to 7 minutes.",
+                    "Developed a release portal, connecting AWS, BitBucket, **Slack**, **JIRA**, Confluence, and **Jenkins** into a single cohesive application for production release automation.",
+                    "Developed **CLI tools** for automating developer stack migrations, developer onboarding, and new service setup.",
+                    "Developed an advanced BitBucket pipeline runner capable of executing existing pipeline configurations locally using **Docker**."
                 ],
                 "startedOn": "2022",
                 "finishedOn": "2023"
@@ -73,21 +57,11 @@
             {
                 "title": "$POSITION_TITLE_KT/Backend Engineer",
                 "location": "Remote",
-                "labels": [
-                    {
-                        "url": "https://www.kosmotime.com/",
-                        "label": "KosmoTime"
-                    }
-                ],
-                "technologies": [
-                    "Go",
-                    "Kubernetes",
-                    "$TECHNOLOGY_CLOUD_PRIMARY/GCP"
-                ],
+                "company": "Chili Piper - KosmoTime",
                 "bullets": [
                     "I focused on writing high quality, maintainable code allowing our team to ship new features with a very high degree of confidence.",
-                    "Refactored and maintained existing backend code, or our primary web application.",
-                    "Shipped new features, worked through the backlog of feature requests and improvements."
+                    "Refactored and maintained an existing **Go** codebase. Contributing a rapidly growing project.",
+                    "Maintained and expanded **Kubernetes** cluster configurations on **Google Cloud** Platform."
                 ],
                 "startedOn": "2022",
                 "finishedOn": "2022"
@@ -95,40 +69,26 @@
             {
                 "title": "$POSITION_TITLE_CP/Full Stack Engineer",
                 "location": "Remote",
-                "labels": [
-                    {
-                        "url": "https://www.chilipiper.com",
-                        "label": "Chili Piper"
-                    }
-                ],
-                "technologies": [
-                    "Go",
-                    "$TECHNOLOGY_JS_RUNTIME/Node.js",
-                    "$TECHNOLOGY_FE_LIBRARY/React"
-                ],
+                "company": "Chili Piper",
                 "bullets": [
                     "I focused on providing excellent internal tooling, allowing our team to quickly become an industry leader in Customer Support.",
-                    "Designed and implemented an internal support portal, aggregating data from various services and tools, contributing to industry leading support resolution times.",
-                    "Developed performant customer-facing tools and add-ons, reducing onboarding times by 40%."
+                    "Designed and implemented internal tooling in **Svelte** and **Go**, aggregating data from **Salesforce**, **JIRA**, ZenDesk, and **MongoDB** into am industry leading support portal.",
+                    "Developed performant customer-facing tools and **Chrome extensions**, reducing onboarding times by 40%.",
+                    "Worked on unique customer implementations of ChiliPiper software in **WordPress**, **HubSpot**, and many more advanced flows."
                 ],
                 "startedOn": "2021",
                 "finishedOn": "2022"
             },
             {
-                "title": "$POSITION_TITLE_MS/Internal Tooling Engineer",
+                "title": "$POSITION_TITLE_MS/Tooling Engineer Intern",
                 "location": "Redmond, WA",
-                "labels": [
-                    {
-                        "url": "https://killedbymicrosoft.info",
-                        "label": "Mixer.com"
-                    }
-                ],
+                "company": "Microsoft",
                 "technologies": [
                     "JavaScript",
                     "Python"
                 ],
                 "bullets": [
-                    "Developed custom tools and scripts, optimizing workflow organization and efficiency, leading to a 24% improvement in task completion speed.",
+                    "Developed custom tools and Chrome extensions, optimizing workflow organization and efficiency, leading to a 24% improvement in task completion speed.",
                     "Wrote detailed documentation for troubleshooting hardware and software issues, reducing ticket resolution time by 13%.",
                     "Managed and safeguarded highly confidential information, ensuring compliance with data security protocols."
                 ],
@@ -160,49 +120,31 @@
         "projects": [
             {
                 "title": "Listik",
-                "technologies": [
-                    "Svelte",
-                    "Bun"
-                ],
-                "labels": [],
-                "description": "A user-friendly application for collaborating on shopping lists. Listik is designed to be extremely fast and simple, while delivering an amazing experience for users to collaborate in real time. "
+                "bullets": [
+                    "A user-friendly application for collaborating on shopping lists.",
+                    "Listik is designed to be extremely fast and simple, made possible by using **HTMX** and **SQLite**."
+                ]
             },
             {
                 "title": "Feedlr",
-                "technologies": [
-                    "Go",
-                    "HTMX/templ"
-                ],
-                "labels": [
-                    {
-                        "label": "GitHub",
-                        "url": "https://github.com/Cufee/feedlr-yt"
-                    }
-                ],
-                "description": "Ad-free YouTube frontend alternative with build-in sponsor blocking and zero tracking."
+                "bullets": [
+                    "Ad-free YouTube frontend alternative with build-in sponsor blocking and zero tracking.",
+                    "In order to serve a large number of users, this application uses an advanced system of proxies and authentication spoofing to access **Google APIs**."
+                ]
             },
             {
                 "title": "Aftermath",
-                "technologies": [
-                    "Go",
-                    "Web Components"
-                ],
-                "labels": [
-                    {
-                        "label": "GitHub",
-                        "url": "https://github.com/Cufee/aftermath"
-                    }
-                ],
-                "description": "Highly rated Discord Bot for in-game progress tracking with a beautiful UI and a custom rendering engine."
+                "bullets": [
+                    "Highly rated **Discord** Bot for player progress tracking with a beautiful UI.",
+                    "A custom **2D rendering** engine was developed in order to render a UI into an image, consumable through Discord."
+                ]
             },
             {
                 "title": "Pulley",
-                "technologies": [
-                    "TypeScript",
-                    "Deno"
-                ],
-                "labels": [],
-                "description": "User-friendly CLI tool for fast git repository management."
+                "bullets": [
+                    "User-friendly CLI tool for fast **git** repository management. It is designed to sync a local repository tree with a configuration file.",
+                    "Pulley is written in **Deno** in order to produce a binary executable, making the application simpler to distribute."
+                ]
             }
         ]
     }
