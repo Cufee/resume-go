@@ -48,7 +48,7 @@ templ Index(assetsPath string, data Resume) {
 }
 
 templ header(data Header) {
-	<div class="flex flex-col flex-wrap items-center justify-between gap-2 sm:items-start sm:flex-row">
+	<div class="grid items-center justify-center gap-2 sm:grid-cols-3 sm:items-start">
 		<div class="flex flex-col">
 			<span class="text-lg">vkouzin@outlook.com</span>
 		</div>
@@ -58,12 +58,10 @@ templ header(data Header) {
 		</div>
 		<div class="flex flex-col items-center sm:items-end">
 			<div class="flex flex-row gap-1 text-lg">
-				<span>GitHub:</span>
-				<span>Cufee</span>
+				<span>github.com/cufee</span>
 			</div>
 			<div class="flex flex-row gap-1 text-lg">
-				<span>LinkedIn:</span>
-				<span>vkouzin</span>
+				<span>linkedin.com/in/vkouzin</span>
 			</div>
 		</div>
 	</div>
