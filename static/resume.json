@@ -23,7 +23,7 @@
         ]
     },
     "content": {
-        "summary": "$CONTENT_SUMMARY/Thank you for giving me this opportunity! I am an experienced software engineer with great passion for delivering exceptional user experiences with no compromises on performance. I am extremely quick at making myself comfortable with unfamiliar technologies and adapting them to solve complex problems efficiently.",
+        "summary": "$CONTENT_SUMMARY/Thank you for giving me this opportunity! I am an experienced Software Engineer who is passionate about delivering exceptional user experiences with no compromises on performance. I am extremely quick at making myself comfortable with unfamiliar technologies and adapting them to solve complex problems efficiently.",
         "expandUrl": "",
         "positions": [
             {
@@ -47,7 +47,7 @@
                     "I focused on providing excellent tooling and refactoring a legacy **Python** code base to support AlertMedia's hypergrowth.",
                     "Led a comprehensive **Docker Compose** configuration refactor effort, improving developer experience and automating developer onboarding.",
                     "Led a migration from **BitBucket** to **CircleCI**, reducing CI/CD pipeline run time from over an hour to 7 minutes.",
-                    "Developed a release portal, connecting AWS, BitBucket, **Slack**, **JIRA**, Confluence, and **Jenkins** into a single cohesive application for production release automation.",
+                    "Developed a release portal, connecting **AWS**, BitBucket, **Slack**, **JIRA**, Confluence, and **Jenkins** into a single cohesive application for production release automation.",
                     "Developed **CLI tools** for automating developer stack migrations, developer onboarding, and new service setup.",
                     "Developed an advanced BitBucket pipeline runner capable of executing existing pipeline configurations locally using **Docker**."
                 ],
