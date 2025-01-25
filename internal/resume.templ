@@ -38,8 +38,8 @@ templ Index(assetsPath string, data Resume) {
 				<div class="w-6"></div>
 			</a>
 			<div class="flex flex-col justify-center max-w-5xl gap-8 p-8 m-auto print:max-w-fit forced-color-adjust-none print:p-0">
-				@resumeHeader(data.Header)
-				@resumeContent(data.Content)
+				@header(data.Header)
+				@experience(data.Content)
 				@projects(data.Sidebar)
 				@skills(data.Sidebar)
 			</div>
@@ -47,8 +47,8 @@ templ Index(assetsPath string, data Resume) {
 	</html>
 }
 
-templ resumeHeader(data Header) {
-	<div class="flex flex-row flex-wrap items-start justify-between gap-2">
+templ header(data Header) {
+	<div class="flex flex-col flex-wrap items-center justify-between gap-2 md:items-start md:flex-row">
 		<div class="flex flex-col">
 			<span class="text-lg">vkouzin@outlook.com</span>
 		</div>
@@ -56,7 +56,7 @@ templ resumeHeader(data Header) {
 			<span class="text-3xl">Vlad Kouzin</span>
 			<span class="text-lg">resume.kouzin.net</span>
 		</div>
-		<div class="flex flex-col items-end">
+		<div class="flex flex-col items-center md:items-end">
 			<div class="flex flex-row gap-1 text-lg">
 				<span>GitHub:</span>
 				<span>Cufee</span>
@@ -78,7 +78,7 @@ templ hr(label string) {
 	</div>
 }
 
-templ resumeContent(data Content) {
+templ experience(data Content) {
 	<div class="flex flex-col gap-8">
 		<div class="flex flex-col gap-2">
 			@hr("Summary")
@@ -100,15 +100,15 @@ templ resumeContent(data Content) {
 templ position(data Position) {
 	<div class="flex flex-col items-start gap-2">
 		<div class="flex flex-col w-full">
-			<div class="grid items-end grid-cols-3 gap-1">
-				<span class="text-xl font-bold text-start">{ data.Company }</span>
-				<div class="flex flex-col items-center">
+			<div class="grid items-end grid-cols-1 gap-1 md:grid-cols-3">
+				<span class="text-xl font-bold">{ data.Company }</span>
+				<div class="flex flex-col md:items-center">
 					<span class="text-2xl font-bold text-start">
 						@data.Title
 					</span>
 					<span class="text-lg">{ strings.Join(data.Technologies, ", ") }</span>
 				</div>
-				<div class="flex flex-row justify-end gap-1">
+				<div class="flex flex-row gap-1 md:justify-end">
 					<span class="text-xl font-bold text-center">
 						@data.StartedOn
 					</span>
