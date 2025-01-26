@@ -98,7 +98,7 @@ func savePageAsPDF(browser *rod.Browser, source string, target io.Writer) error 
 	page := browser.MustPage(filepath.Join("file://", source)).MustWaitStable()
 
 	reader, err := page.PDF(&proto.PagePrintToPDF{
-		Scale:        p(0.58),
+		Scale:        p(0.59),
 		MarginTop:    p(0.2),
 		MarginLeft:   p(0.3),
 		MarginRight:  p(0.3),
