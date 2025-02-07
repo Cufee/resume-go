@@ -1,7 +1,7 @@
 {
     "header": {
         "title": "Vlad Kouzin",
-        "subtitle": "$HEADER_SUBTITLE/Platform Engineer",
+        "subtitle": "$HEADER_SUBTITLE/Backend Engineer",
         "labels": [
             {
                 "label": "vkouzin@outlook.com"
@@ -27,7 +27,7 @@
         "expandUrl": "",
         "positions": [
             {
-                "title": "$POSITION_TITLE_VD/Full Stack Engineer",
+                "title": "$POSITION_TITLE_VD/Backend Engineer",
                 "location": "Remote",
                 "company": "Zont",
                 "bullets": [
@@ -40,7 +40,7 @@
                 "finishedOn": "Present"
             },
             {
-                "title": "$POSITION_TITLE_AM/Platform Engineer",
+                "title": "$POSITION_TITLE_AM/Backend Engineer",
                 "location": "Austin, TX",
                 "company": "AlertMedia",
                 "bullets": [
@@ -67,7 +67,7 @@
                 "finishedOn": "2022"
             },
             {
-                "title": "$POSITION_TITLE_CP/Full Stack Engineer",
+                "title": "$POSITION_TITLE_CP/Backend Engineer",
                 "location": "Remote",
                 "company": "Chili Piper",
                 "bullets": [
