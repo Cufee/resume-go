@@ -32,6 +32,9 @@ func (r *Resume) Fill(variables map[string]string) {
 type Header struct {
 	Title    Text `json:"title"`
 	Subtitle Text `json:"subtitle"`
+	Email    Text `json:"email"`
+	GitHub   Text `json:"github"`
+	LinkedIn Text `json:"linkedIn"`
 }
 
 func (h *Header) Fill(variables map[string]string) {

@@ -51,16 +51,30 @@ templ Index(assetsPath string, data Resume) {
 templ header(data Header) {
 	<div class="grid items-center justify-center gap-2 sm:grid-cols-3 sm:items-start">
 		<div class="flex flex-col">
-			<span class="text-lg/6">vkouzin@outlook.com</span>
+			<span class="text-lg/5">
+				@data.Email
+			</span>
 		</div>
 		<div class="flex flex-col items-center">
-			<span class="text-2xl/6">Vlad Kouzin</span>
-			<span class="text-lg/6">{ data.Subtitle.String() }</span>
+			<span class="font-bold text-2xl/6">
+				@data.Title
+			</span>
+			<span class="text-lg/6">
+				@data.Subtitle
+			</span>
 		</div>
-		<div class="inline-grid gap-1 sm:justify-end grid-cols-auto-auto">
-			<div class="flex flex-col text-lg/6 text-end">
-				<span>linkedin: vkouzin</span>
-				<span>github: ⠀ cufee</span>
+		<div class="flex flex-col text-lg/5">
+			<div class="flex gap-1">
+				<div class="grow text-end">linkedin:</div>
+				<div class="w-16 text-start">
+					@data.LinkedIn
+				</div>
+			</div>
+			<div class="flex gap-1">
+				<div class="grow text-end">github:</div>
+				<div class="w-16 text-start">
+					@data.GitHub
+				</div>
 			</div>
 		</div>
 	</div>

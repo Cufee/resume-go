@@ -2,7 +2,9 @@
     "header": {
         "title": "Vlad Kouzin",
         "subtitle": "$HEADER_SUBTITLE/Backend Engineer",
-        "email": "vkouzin@outlook.com"
+        "email": "vkouzin@outlook.com",
+        "linkedin": "vkouzin",
+        "github": "cufee"
     },
     "content": {
         "summary": "$CONTENT_SUMMARY/Experienced Go Backend Engineer with 4+ years in distributed systems. Proven ability to develop high-performance Go applications, consolidate complex microservices, and work with SQL databases. Skilled in API design and ensuring system stability through comprehensive testing.",
