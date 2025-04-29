@@ -99,7 +99,7 @@ func savePageAsPDF(browser *rod.Browser, source string, target io.Writer) error 
 
 	reader, err := page.PDF(&proto.PagePrintToPDF{
 		Scale:        p(0.63),
-		MarginTop:    p(0.35),
+		MarginTop:    p(0.25),
 		MarginLeft:   p(0.35),
 		MarginRight:  p(0.35),
 		MarginBottom: p(0.0),

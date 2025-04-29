@@ -7,7 +7,7 @@ send_interrupt = true
 stop_on_error = true
 
 [proxy]
-enabled = false
+enabled = true
 app_port = 8081
 proxy_port = 8082
 

@@ -37,11 +37,12 @@ templ Index(assetsPath string, data Resume) {
 				<span class="text-xl">Download as PDF</span>
 				<div class="w-6"></div>
 			</a>
-			<div class="flex flex-col justify-center max-w-5xl gap-8 p-8 m-auto print:max-w-fit forced-color-adjust-none print:p-0">
+			<div class="flex flex-col justify-center max-w-5xl gap-4 p-8 m-auto text-lg print:max-w-fit forced-color-adjust-none print:p-0">
 				@header(data.Header)
+				@summary(data.Content.Summary)
+				@skills(data.Sidebar)
 				@experience(data.Content)
 				@projects(data.Sidebar)
-				@skills(data.Sidebar)
 			</div>
 		</body>
 	</html>
@@ -53,17 +54,13 @@ templ header(data Header) {
 			<span class="text-lg/6">vkouzin@outlook.com</span>
 		</div>
 		<div class="flex flex-col items-center">
-			<span class="text-3xl/6">Vlad Kouzin</span>
-			<span class="text-lg/6">resume.kouzin.net</span>
+			<span class="text-2xl/6">Vlad Kouzin</span>
+			<span class="text-lg/6">{ data.Subtitle.String() }</span>
 		</div>
 		<div class="inline-grid gap-1 sm:justify-end grid-cols-auto-auto">
 			<div class="flex flex-col text-lg/6 text-end">
-				<span>linkedin:</span>
-				<span>github:</span>
-			</div>
-			<div class="flex flex-col text-lg/6 text-start">
-				<span>vkouzin</span>
-				<span>cufee</span>
+				<span>linkedin: vkouzin</span>
+				<span>github: ⠀ cufee</span>
 			</div>
 		</div>
 	</div>
@@ -78,21 +75,22 @@ templ hr(label string) {
 	</div>
 }
 
+templ summary(text Text) {
+	<div class="flex flex-col gap-2">
+		@hr("Summary")
+		<span>
+			@text
+		</span>
+	</div>
+}
+
 templ experience(data Content) {
-	<div class="flex flex-col gap-8">
-		<div class="flex flex-col gap-2">
-			@hr("Summary")
-			<span>
-				@data.Summary
-			</span>
-		</div>
+	<div class="flex flex-col gap-4">
+		@hr("Experience")
 		<div class="flex flex-col gap-4">
-			@hr("Experience")
-			<div class="flex flex-col gap-8">
-				for _, data := range data.Positions {
-					@position(data)
-				}
-			</div>
+			for _, data := range data.Positions {
+				@position(data)
+			}
 		</div>
 	</div>
 }
@@ -145,11 +143,11 @@ templ projects(data Sidebar) {
 }
 
 templ skills(data Sidebar) {
-	<div class="flex flex-col gap-2">
+	<div class="flex flex-col gap-2 grow">
 		@hr("Skills")
 		<ol class="flex flex-col ml-6 list-disc">
 			for _, group := range data.Skills {
-				<li>{ strings.Join(group, ", ") }</li>
+				<li class="text-nowrap break-keep whitespace-nowrap">{ strings.Join(group, ", ") }</li>
 			}
 		</ol>
 	</div>
@@ -160,7 +158,7 @@ templ project(data Project) {
 		<div class="flex flex-col justify-end">
 			<div class="flex flex-col items-start">
 				<div class="flex flex-row items-center justify-between w-full">
-					<span class="text-2xl font-bold">
+					<span class="text-xl font-bold">
 						@data.Title
 					</span>
 				</div>
