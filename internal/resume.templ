@@ -11,7 +11,7 @@ func filename(title string) string {
 	return fmt.Sprintf("%s_%s_%v.pdf", strings.ReplaceAll(title, " ", "_"), t.Month().String()[:3], t.Year()%2000)
 }
 
-templ Index(data Resume) {
+templ Index(assetsPath string, data Resume) {
 	<!DOCTYPE html>
 	<html data-theme="light">
 		<head>
@@ -26,8 +26,8 @@ templ Index(data Resume) {
 			<meta name="twitter:title" content={ data.Header.Title.String() }/>
 			// <meta name="twitter:image" content={ constants.FrontendURL + "/assets/og/default.jpg" }/>
 			<meta name="twitter:description" content={ data.Header.Subtitle.String() }/>
-			<link href="/main.css" rel="stylesheet" type="text/css"/>
-			<link rel="icon" href="/favicon.svg"/>
+			<link href={ assetsPath + "/main.css" } rel="stylesheet" type="text/css"/>
+			<link rel="icon" href={ assetsPath + "/favicon.svg" }/>
 		</head>
 		<body class="flex flex-col justify-center w-screen">
 			<a id="download" href="resume.pdf" download={ filename(data.Header.Title.String()) } class="sticky top-0 flex items-center justify-between w-full gap-2 p-2 transition-all duration-500 opacity-80 print:hidden bg-neutral hover:opacity-100 text-neutral-content">

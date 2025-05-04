@@ -94,7 +94,12 @@ func newVariation(browser *rod.Browser, name string, resume internal.Resume, var
 	}
 	defer out.Close()
 
-	err = internal.Index(copy).Render(context.Background(), out)
+	path, err := filepath.Rel(filepath.Join("build", name), filepath.Join("build"))
+	if err != nil {
+		return err
+	}
+
+	err = internal.Index(path, copy).Render(context.Background(), out)
 	if err != nil {
 		return err
 	}
