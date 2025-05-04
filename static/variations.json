@@ -1,0 +1,14 @@
+{
+  "be-go": {
+    "HEADER_SUBTITLE": "Backend Engineer",
+    "CONTENT_SUMMARY": "Experienced Go Backend Engineer with 4+ years in distributed systems. Proven ability to develop high-performance Go applications, consolidate complex microservices, and work with SQL databases. Skilled in API design and ensuring system stability through comprehensive testing."
+  },
+  "pl-go": {
+    "HEADER_SUBTITLE": "Platform Engineer",
+    "CONTENT_SUMMARY": "Experienced Go Platform Engineer with 4+ years in distributed systems. Proven ability to develop high-performance Go applications, consolidate complex microservices, and work with SQL databases. Skilled in API design and ensuring system stability through comprehensive testing."
+  },
+  "fs-ts": {
+    "HEADER_SUBTITLE": "Fullstack Engineer",
+    "CONTENT_SUMMARY": "Experienced TypeScript Engineer with 4+ years in distributed systems. Proven ability to develop high-performance Go applications, consolidate complex microservices, and work with SQL databases. Skilled in API design and ensuring system stability through comprehensive testing."
+  }
+}

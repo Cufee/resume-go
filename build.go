@@ -46,10 +46,31 @@ func main() {
 	browser := rod.New().MustConnect()
 	var wg sync.WaitGroup
 
+	// default variation
 	err = newVariation(browser, "", resume, nil)
 	if err != nil {
 		panic(err)
 	}
+
+	// other variations
+	func() {
+		data, err := os.ReadFile("static/variations.json")
+		if err != nil {
+			return
+		}
+		var variations map[string]map[string]string
+		err = json.Unmarshal(data, &variations)
+		if err != nil {
+			return
+		}
+
+		for name, vars := range variations {
+			err = newVariation(browser, name, resume, vars)
+			if err != nil {
+				return
+			}
+		}
+	}()
 
 	wg.Wait()
 	browser.Close()
