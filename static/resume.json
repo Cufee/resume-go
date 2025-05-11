@@ -1,109 +1,97 @@
 {
     "header": {
         "title": "Vlad Kouzin",
-        "subtitle": "$HEADER_SUBTITLE/Backend Engineer",
+        "subtitle": "Backend Engineer",
         "email": "vkouzin@outlook.com",
         "linkedin": "vkouzin",
         "github": "cufee"
     },
-    "content": {
-        "summary": "$CONTENT_SUMMARY/Experienced Go Backend Engineer with 4+ years in distributed systems. Proven ability to develop high-performance Go applications, consolidate complex microservices, and work with SQL databases. Skilled in API design and ensuring system stability through comprehensive testing.",
-        "expandUrl": "",
-        "positions": [
-            {
-                "title": "$POSITION_TITLE_VD/Backend Engineer",
-                "company": "Zont",
-                "bullets": [
-                    "Consolidated over 7 microservices into a single, highly efficient **Go** application, reducing compute costs by 70%.",
-                    "Refactored existing deployment configurations in order to facilitate a cloud to **on-premise compute** migration.",
-                    "Migrated existing code bases from **MongoDB** to **SQLite** and **PostgreSQL**.",
-                    "Refactored legacy code bases, writing extensive unit **tests** and configuring **CI/CD** pipelines."
-                ],
-                "startedOn": "2023",
-                "finishedOn": "Present"
-            },
-            {
-                "title": "$POSITION_TITLE_AM/Platform Engineer",
-                "company": "AlertMedia",
-                "bullets": [
-                    "Developed internal tooling in **TypeScript** and refactored an existing **Python** code base.",
-                    "Led a comprehensive **Docker Compose** configuration refactor effort, automating developer onboarding.",
-                    "Led a migration from **BitBucket** to **CircleCI**, reducing CI/CD pipeline run time from over an hour to 7 minutes.",
-                    "Developed a release portal, connecting **AWS**, BitBucket, **Slack**, **JIRA**, Confluence, and **Jenkins** into a single application for production release automation.",
-                    "Developed an advanced BitBucket pipeline runner capable of executing existing pipeline configurations locally using **Docker**."
-                ],
-                "startedOn": "2022",
-                "finishedOn": "2023"
-            },
-            {
-                "title": "$POSITION_TITLE_KT/Backend Engineer",
-                "company": "Chili Piper - KosmoTime",
-                "bullets": [
-                    "Refactored **Go** microservices, implementing new features and adding unit tests.",
-                    "Improved service stability by writing tests covering over 90% of key packages.",
-                    "Maintained and expanded **Kubernetes** cluster configurations on **Google Cloud** Platform."
-                ],
-                "startedOn": "2022",
-                "finishedOn": "2022"
-            },
-            {
-                "title": "$POSITION_TITLE_CP/Fullstack Engineer",
-                "company": "Chili Piper",
-                "bullets": [
-                    "Developed internal tooling for Customer Support, QA, and Product teams.",
-                    "Designed and implemented internal tooling in **Svelte** and **Go**, aggregating data from **Salesforce**, **JIRA**, ZenDesk, and **MongoDB** into a single customer support portal.",
-                    "Developed performant customer-facing tools and **Chrome extensions**, reducing average issue resolution times by 35%.",
-                    "Worked on unique customer implementations of ChiliPiper software in **WordPress**, **HubSpot**, and many more advanced flows."
-                ],
-                "startedOn": "2021",
-                "finishedOn": "2022"
-            }
-        ]
-    },
-    "sidebar": {
-        "skills": [
-            [
-                "Go, TypeScript, SQL"
+    "summary": "Experienced Go Backend Engineer with 4+ years in distributed systems. Proven ability to develop high-performance Go applications, consolidate complex microservices, and work with SQL databases. Skilled in API design and ensuring system stability through comprehensive testing.",
+    "skills": [
+        "Go, TypeScript, SQL",
+        "Node.js, React, HTMX",
+        "CircleCI, BitBucket, GitHub, OpenAI",
+        "NIX, Terraform, Docker, Kubernetes, AWS, GCP"
+    ],
+    "positionMaxCount": 4,
+    "positions": [
+        {
+            "title": "Backend Engineer",
+            "company": "Zont",
+            "bullets": [
+                "Consolidated over 7 microservices into a single, highly efficient **Go** application, reducing compute costs by 70%.",
+                "Refactored existing deployment configurations in order to facilitate a cloud to **on-premise compute** migration.",
+                "Migrated existing code bases from **MongoDB** to **SQLite** and **PostgreSQL**.",
+                "Refactored legacy code bases, writing extensive unit **tests** and configuring **CI/CD** pipelines."
             ],
-            [
-                "Node.js, React, HTMX"
+            "startedOn": "2023",
+            "finishedOn": "Present"
+        },
+        {
+            "title": "Platform Engineer",
+            "company": "AlertMedia",
+            "bullets": [
+                "Developed internal tooling in **TypeScript** and refactored an existing **Python** code base.",
+                "Led a comprehensive **Docker Compose** configuration refactor effort, automating developer onboarding.",
+                "Led a migration from **BitBucket** to **CircleCI**, reducing CI/CD pipeline run time from over an hour to 7 minutes.",
+                "Developed a release portal, connecting **AWS**, BitBucket, **Slack**, **JIRA**, Confluence, and **Jenkins** into a single application for production release automation.",
+                "Developed an advanced BitBucket pipeline runner capable of executing existing pipeline configurations locally using **Docker**."
             ],
-            [
-                "CircleCI, BitBucket, GitHub, OpenAI"
+            "startedOn": "2022",
+            "finishedOn": "2023"
+        },
+        {
+            "title": "Backend Engineer",
+            "company": "Chili Piper - KosmoTime",
+            "bullets": [
+                "Refactored **Go** microservices, implementing new features and adding unit tests.",
+                "Improved service stability by writing tests covering over 90% of key packages.",
+                "Maintained and expanded **Kubernetes** cluster configurations on **Google Cloud** Platform."
             ],
-            [
-                "NIX, Terraform, Docker, Kubernetes, AWS, GCP"
+            "startedOn": "2022",
+            "finishedOn": "2022"
+        },
+        {
+            "title": "Fullstack Engineer",
+            "company": "Chili Piper",
+            "bullets": [
+                "Developed internal tooling for Customer Support, QA, and Product teams.",
+                "Designed and implemented internal tooling in **Svelte** and **Go**, aggregating data from **Salesforce**, **JIRA**, ZenDesk, and **MongoDB** into a single customer support portal.",
+                "Developed performant customer-facing tools and **Chrome extensions**, reducing average issue resolution times by 35%.",
+                "Worked on unique customer implementations of ChiliPiper software in **WordPress**, **HubSpot**, and many more advanced flows."
+            ],
+            "startedOn": "2021",
+            "finishedOn": "2022"
+        }
+    ],
+    "projects": [
+        {
+            "title": "Aftermath",
+            "bullets": [
+                "Highly rated Discord Bot for in-game progress tracking with a beautiful UI, written in **Go**.",
+                "Developed a custom **2D rendering** engine in order to render UIs into images consumable through Discord."
             ]
-        ],
-        "projects": [
-            {
-                "title": "Aftermath",
-                "bullets": [
-                    "Highly rated Discord Bot for in-game progress tracking with a beautiful UI, written in **Go**.",
-                    "Developed a custom **2D rendering** engine in order to render UIs into images consumable through Discord."
-                ]
-            },
-            {
-                "title": "Pulley",
-                "bullets": [
-                    "A user-friendly CLI tool written in **TypeScript**, designed to automate developer onboarding by setting up all required git repositories and generating a Docker Compose configuration file.",
-                    "Pulley simplified a large chunk of the onboarding process at AlertMedia, saving over an hour of time for each new developer."
-                ]
-            },
-            {
-                "title": "Feedlr",
-                "bullets": [
-                    "Ad-free YouTube frontend alternative with build-in sponsor blocking and zero tracking, written in **TypeScript** and **Go**.",
-                    "Implemented a system of proxies and authentication spoofing in order to serve a large number of users while using internal **Google APIs**."
-                ]
-            },
-            {
-                "title": "Listik",
-                "bullets": [
-                    "A user-friendly application for collaborating on shopping lists, written in **TypeScript** and **Go**",
-                    "Developed with **Svelte** and **SQLite** in order to be extremely fast and simple."
-                ]
-            }
-        ]
-    }
+        },
+        {
+            "title": "Pulley",
+            "bullets": [
+                "A user-friendly CLI tool written in **TypeScript**, designed to automate developer onboarding by setting up all required git repositories and generating a Docker Compose configuration file.",
+                "Pulley simplified a large chunk of the onboarding process at AlertMedia, saving over an hour of time for each new developer."
+            ]
+        },
+        {
+            "title": "Feedlr",
+            "bullets": [
+                "Ad-free YouTube frontend alternative with build-in sponsor blocking and zero tracking, written in **TypeScript** and **Go**.",
+                "Implemented a system of proxies and authentication spoofing in order to serve a large number of users while using internal **Google APIs**."
+            ]
+        },
+        {
+            "title": "Listik",
+            "bullets": [
+                "A user-friendly application for collaborating on shopping lists, written in **TypeScript** and **Go**",
+                "Developed with **Svelte** and **SQLite** in order to be extremely fast and simple."
+            ]
+        }
+    ]
 }

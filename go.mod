@@ -5,9 +5,11 @@ go 1.23.0
 require (
 	github.com/a-h/templ v0.3.819
 	github.com/go-rod/rod v0.116.2
+	golang.org/x/sync v0.10.0
 )
 
 require (
+	dario.cat/mergo v1.0.2 // indirect
 	github.com/ysmood/fetchup v0.2.4 // indirect
 	github.com/ysmood/goob v0.4.0 // indirect
 	github.com/ysmood/got v0.40.0 // indirect

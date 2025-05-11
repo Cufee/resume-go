@@ -39,10 +39,10 @@ templ Index(assetsPath string, data Resume) {
 			</a>
 			<div class="flex flex-col justify-center max-w-5xl gap-4 p-8 m-auto text-lg print:max-w-fit forced-color-adjust-none print:p-0">
 				@header(data.Header)
-				@summary(data.Content.Summary)
-				@skills(data.Sidebar)
-				@experience(data.Content)
-				@projects(data.Sidebar)
+				@summary(data.Summary)
+				@skills(data.Skills)
+				@experience(data.Positions, data.PositionsCount)
+				@projects(data.Projects)
 			</div>
 		</body>
 	</html>
@@ -65,16 +65,28 @@ templ header(data Header) {
 		</div>
 		<div class="flex flex-col text-lg/5">
 			<div class="flex gap-1">
-				<div class="grow text-end">linkedin:</div>
-				<div class="w-16 text-start">
-					@data.LinkedIn
+				<div class="grow text-end">
+					<a href={ templ.URL(fmt.Sprintf("https://linkedin.com/in/%s", data.LinkedIn)) } target="_blank">
+						linkedin:
+					</a>
 				</div>
+				<a href={ templ.URL(fmt.Sprintf("https://linkedin.com/in/%s", data.LinkedIn)) } target="_blank">
+					<div class="w-16 text-start">
+						@data.LinkedIn
+					</div>
+				</a>
 			</div>
 			<div class="flex gap-1">
-				<div class="grow text-end">github:</div>
-				<div class="w-16 text-start">
-					@data.GitHub
+				<div class="grow text-end">
+					<a href={ templ.URL(fmt.Sprintf("https://github.com/%s", data.GitHub)) } target="_blank">
+						github:
+					</a>
 				</div>
+				<a href={ templ.URL(fmt.Sprintf("https://github.com/%s", data.GitHub)) } target="_blank">
+					<div class="w-16 text-start">
+						@data.GitHub
+					</div>
+				</a>
 			</div>
 		</div>
 	</div>
@@ -98,12 +110,12 @@ templ summary(text Text) {
 	</div>
 }
 
-templ experience(data Content) {
+templ experience(data []Position, maxPositions int) {
 	<div class="flex flex-col gap-4">
 		@hr("Experience")
 		<div class="flex flex-col gap-4">
-			for _, data := range data.Positions {
-				@position(data)
+			for i := range min(len(data), maxPositions) {
+				@position(data[i])
 			}
 		</div>
 	</div>
@@ -145,23 +157,25 @@ templ position(data Position) {
 	</div>
 }
 
-templ projects(data Sidebar) {
+templ projects(data []Project) {
 	<div class="flex flex-col gap-4">
 		@hr("Projects")
 		<div class="flex flex-col gap-4">
-			for _, proj := range data.Projects {
+			for _, proj := range data {
 				@project(proj)
 			}
 		</div>
 	</div>
 }
 
-templ skills(data Sidebar) {
+templ skills(data []Text) {
 	<div class="flex flex-col gap-2 grow">
 		@hr("Skills")
 		<ol class="flex flex-col ml-6 list-disc">
-			for _, group := range data.Skills {
-				<li class="text-nowrap break-keep whitespace-nowrap">{ strings.Join(group, ", ") }</li>
+			for _, skill := range data {
+				<li class="text-nowrap break-keep whitespace-nowrap">
+					@skill
+				</li>
 			}
 		</ol>
 	</div>

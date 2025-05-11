@@ -18,15 +18,29 @@ func LoadResumeJSON(data []byte) (Resume, error) {
 }
 
 type Resume struct {
-	Header  Header  `json:"header"`
-	Content Content `json:"content"`
-	Sidebar Sidebar `json:"sidebar"`
+	Header         Header     `json:"header"`
+	Summary        Text       `json:"summary"`
+	Skills         []Text     `json:"skills"`
+	Positions      []Position `json:"positions"`
+	PositionsCount int        `json:"positionMaxCount"`
+	Projects       []Project  `json:"projects"`
 }
 
 func (r *Resume) Fill(variables map[string]string) {
 	r.Header.Fill(variables)
-	r.Content.Fill(variables)
-	r.Sidebar.Fill(variables)
+	r.Summary.Fill(variables)
+	for i, skill := range r.Skills {
+		skill.Fill(variables)
+		r.Skills[i] = skill
+	}
+	for i, pos := range r.Positions {
+		pos.Fill(variables)
+		r.Positions[i] = pos
+	}
+	for i, proj := range r.Projects {
+		proj.Fill(variables)
+		r.Projects[i] = proj
+	}
 }
 
 type Header struct {
@@ -42,18 +56,6 @@ func (h *Header) Fill(variables map[string]string) {
 	h.Subtitle.Fill(variables)
 }
 
-type Sidebar struct {
-	Skills   [][]string `json:"skills"`
-	Projects []Project  `json:"projects"`
-}
-
-func (s *Sidebar) Fill(variables map[string]string) {
-	for i, p := range s.Projects {
-		p.Fill(variables)
-		s.Projects[i] = p
-	}
-}
-
 type Project struct {
 	Entry
 	Link    string `json:"link,omitempty"`
@@ -66,21 +68,6 @@ func (p *Project) Fill(variables map[string]string) {
 		b.Fill(variables)
 		p.Bullets[i] = b
 	}
-}
-
-type Content struct {
-	Summary   Text       `json:"summary"`
-	Positions []Position `json:"positions"`
-	ExpandURL Text       `json:"expandUrl"`
-}
-
-func (c *Content) Fill(variables map[string]string) {
-	c.Summary.Fill(variables)
-	for i, p := range c.Positions {
-		p.Fill(variables)
-		c.Positions[i] = p
-	}
-	c.ExpandURL.Fill(variables)
 }
 
 type Position struct {
@@ -113,24 +100,25 @@ func (l *Linkable) Fill(variables map[string]string) {
 
 type Text string
 
-func (t Text) Render(ctx context.Context, w io.Writer) error {
+func (t Text) html() string {
 	// Define a regex to find text between ** **
 	re := regexp.MustCompile(`\*\*(.*?)\*\*`)
 
 	// Replace all matches with the desired HTML span
-	result := re.ReplaceAllStringFunc(string(t), func(match string) string {
+	return re.ReplaceAllStringFunc(string(t), func(match string) string {
 		// Extract the content without the **
 		content := strings.TrimPrefix(strings.TrimSuffix(match, "**"), "**")
 		return `<span class="font-bold">` + content + `</span>`
 	})
+}
 
-	// Write the result to the writer
-	_, err := io.WriteString(w, result)
+func (t Text) Render(ctx context.Context, w io.Writer) error {
+	_, err := io.WriteString(w, t.html())
 	return err
 }
 
 func (t Text) String() string {
-	return string(t)
+	return t.html()
 }
 
 func (t *Text) Fill(variables map[string]string) {

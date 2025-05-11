@@ -6,11 +6,12 @@ import (
 	"io"
 	"os"
 	"path/filepath"
-	"sync"
 
+	"dario.cat/mergo"
 	"github.com/cufee/resume-go/internal"
 	"github.com/go-rod/rod"
 	"github.com/go-rod/rod/lib/proto"
+	"golang.org/x/sync/errgroup"
 )
 
 //go:generate templ generate
@@ -39,50 +40,49 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	if len(resume.Content.Positions) > 4 {
-		resume.Content.Positions = resume.Content.Positions[:4]
-	}
 
 	browser := rod.New().MustConnect()
-	var wg sync.WaitGroup
+	defer browser.Close()
+
+	var group errgroup.Group
 
 	// default variation
-	err = newVariation(browser, "", resume, nil)
+	group.Go(func() error {
+		return newVariation(browser, "", resume)
+	})
+
+	// other variations
+	variationsData, err := os.ReadFile("static/variations.json")
 	if err != nil {
+		return
+	}
+	var variations map[string]internal.Resume
+	err = json.Unmarshal(variationsData, &variations)
+	if err != nil {
+		return
+	}
+
+	for name, overwrites := range variations {
+		group.Go(func() error {
+			var merged internal.Resume
+			if err := mergo.Merge(&merged, resume); err != nil {
+				return err
+			}
+			if err := mergo.Merge(&merged, overwrites, mergo.WithOverride); err != nil {
+				return err
+			}
+			return newVariation(browser, name, merged)
+		})
+	}
+
+	if err := group.Wait(); err != nil {
 		panic(err)
 	}
 
-	// other variations
-	func() {
-		data, err := os.ReadFile("static/variations.json")
-		if err != nil {
-			return
-		}
-		var variations map[string]map[string]string
-		err = json.Unmarshal(data, &variations)
-		if err != nil {
-			return
-		}
-
-		for name, vars := range variations {
-			err = newVariation(browser, name, resume, vars)
-			if err != nil {
-				return
-			}
-		}
-	}()
-
-	wg.Wait()
-	browser.Close()
 	println("Done generating static assets")
 }
 
-func newVariation(browser *rod.Browser, name string, resume internal.Resume, variables map[string]string) error {
-	var copy internal.Resume
-	d, _ := json.Marshal(resume)
-	json.Unmarshal(d, &copy)
-	copy.Fill(variables)
-
+func newVariation(browser *rod.Browser, name string, resume internal.Resume) error {
 	err := os.MkdirAll(filepath.Join("build", name), os.ModePerm)
 	if err != nil {
 		return err
@@ -99,7 +99,7 @@ func newVariation(browser *rod.Browser, name string, resume internal.Resume, var
 		return err
 	}
 
-	err = internal.Index(path, copy).Render(context.Background(), out)
+	err = internal.Index(path, resume).Render(context.Background(), out)
 	if err != nil {
 		return err
 	}
